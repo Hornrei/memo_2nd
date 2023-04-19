@@ -1,0 +1,375 @@
+データを取り出す
+  SELECT　Customername
+  FROM customers;
+  #5
+  SELECT email
+  FROM employees;
+
+複数の列の指定
+  SELECT　productname,price
+  FROM products;
+  #5
+  SELECT productcode,price,productname,productcode
+  FROM products;
+
+列に別名をつける　AS
+  SELECT　productname AS 商品名,price AS 単価
+  FROM　products;
+  #5
+  SELECT employeename AS 社員名,email AS メールアドレス,email AS 連絡先
+  FROM employees;
+
+列の値に対して演算を行う
+  SELECT productname AS 商品名,price * 1.05 AS 税込価格
+  FROM products;
+  #5
+  SELECT (quantity + 200) / 3 AS (数量＋200÷3)
+  FROM sales;
+
+列同士で演算を行う
+  SELECT weight / (height / 100) / (height / 100) AS BMI
+  FROM employees;
+  #5
+  SELECT customerid + customerclassid ^ 3 AS 結果
+  FROM cusotmers;
+
+文字列の連結
+  SELECT CONCAT(customername, '様') AS お名前
+  FROM customers;
+  #5
+  SELECT CONCAT('社員',employeename,'さんの血液型は',bloodtype,'型') AS 社員血液型
+  FROM employees;
+
+集合関数を使う
+  SELECT AVG(price) AS 平均単価
+  FROM products;
+  #5
+  SELECT AVG(height) AS 平均身長, AVG(weight) AS 平均体重
+  FROM employees;
+
+条件でレコードを絞り込む（WHERE）
+  SELECT employeename AS 氏名
+  FROM employees
+  WHERE height >= 180;
+  #5
+  SELECT employeename, height, weight
+  FROM employees
+  WHERE height >= 170 and weight >= 60;
+
+条件でレコードを絞り込む（LIKE）
+  SELECT COUNT(*) AS 子のつく社員の人数
+  FROM employees
+  WHERE employeename LIKE '%子';
+  #5
+  SELECT employeename,height
+  FROM employees
+  WHERE employeename LIKE '%リ%' and height <= 160;
+
+列の値に条件を設定する(CASE句)
+  SELECT productname AS 商品名
+  ,CASE WHEN price < 1000 THEN 'C'
+  WHEN price < 2000 THEN 'B'
+  ELSE 'A'
+  END AS ランク
+  FROM products;
+  #5
+  SELECT eemployeename AS 社員名,
+  CASE WHEN height < 160 THEN 'A'
+  WHEN height < 170 THEN 'B'
+  WHEN height < 180 THEN 'C'
+  ELSE 'D'
+  END AS ランク
+  FROM employees;
+
+グループ単位で集計する（GROUP BY句）
+  SELECT prefecturalid AS 都道府県, COUNT(*) AS 顧客数
+  FROM customers
+  GROUP BY prefecturalid;
+  #5
+  SELECT COUNT(*) AS 支給回数, AVG(amount)
+  FROM salary
+  GROUP BY employeeid;
+
+グループ単位で集計した結果を絞り込む（HAVING句）
+  SELECT prefecturalid AS 都道府県, COUNT(*) AS 顧客数
+  FROM cusotmers
+  GROUP BY prefecturalid
+  HAVING COUNT(*) >= 3;
+  #5
+  SELECT productid AS 商品ID, SUM(quantity) AS 数量合計
+  FROM sales
+  GROUP BY productid
+  HAVING SUM(quantity) >= 100 and SUM(quantity);
+
+グループ単位で集計した結果を絞り込む（WHERE句とHAVING句を組み合わせる）
+  SELECT prefecturalid AS 都道府県,COUNT(*) AS 顧客数
+  FROM customers
+  WHERE customerclassid = 1
+  GROUP BY prefecturalid
+  HAVING COUNT(*) >= 2;
+  #5
+  SELECT productid AS 商品ID, SUM(quantity) AS 数量合計
+  FROM sales
+  WHERE saledate >= 2007_06_01
+  GROUP BY productid
+  HAVING SUM(quantity) >= 200
+
+クロス集計を行う（グループ化とCASE式を組み合わせる）
+  入社年度ごとに血液型が何人ずついるか見る
+
+  SELECT hirefiscalyear AS 入社年度
+  ,SUM(
+    CASE WHEN bloodtype = 'A' THEN 1 ELSE 0 END) AS A型
+  ,SUM(
+    CASE WHEN bloodtype = 'B' THEN 1 ELSE 0 END) AS B型
+  ,SUM(
+    CASE WHEN bloodtype = 'O' THEN 1 ELSE 0 END) AS O型
+  ,SUM(
+    CASE WHEN bloodtype = 'AB' THEN 1 ELSE 0 END) AS AB型
+  FROM employees
+  GROUP BY hirefiscalyear
+  #5
+  SELECT hirefiscalyear AS 入社年度
+  ,SUM(CASE WHEN weight <= 50 THEN 1 ELSE 0 END) AS 50以下
+  ,SUM(CASE WHEN weight <= 60 THEN 1 ELSE 0 END) AS 60以下
+  ,SUM(CASE WHEN weight <= 80 THEN 1 ELSE 0 END) AS 80以下
+  ,SUM(CASE WHEN weight > 80 THEN 1 ELSE 0 END) AS 80超
+  FROM employees
+  GROUP BY hirefiscalyear;
+
+並び替えを行う（ORDER BY）
+  デフォルトは昇順（小さい順）降順にするには列名の後ろにDESCを入れる
+  SELECT productname
+  FROM products
+  ORDER BY price;
+  #5
+  SELECT departmentid AS 部署ID,COUNT(*)
+  FROM belongto
+  WHERE enddate is NULL
+  GROUP BY departmentid
+  ORDER BY COUNT(*) DESC;
+
+重複を排除する（DISTINCT）
+  SELECT DISTINCT address AS 住所
+  FROM customers;
+  #5
+  SELECT DISTINCT price, categoryid
+  FROM products;
+
+---------------------------------------------------------------------------------
+副問い合わせを行う　別のSQL文の中で使用するSELECT文
+  SELECT * 
+  FROM products
+  WHERE productid NOT IN
+  (
+    SELECT productid 
+    FROM sales
+  );
+
+  SELECT *
+  FROM products
+  WHERE proudctid NOT IN(SELECT productid FROM sales;)
+
+  #1
+  SELECT employeeid,employeename
+  FROM employees
+  WHERE employeeid IN(
+    SELECT employeeid
+    FROM salary
+    GROUP BY employeeid
+    HAVING MAX(amount) >= 300000
+  );
+  #2
+  SELECT saleid,customerid,quantity,(
+    SELECT customername
+    FROM customers
+    WHERE sales.customerid = customers.customerid
+  ) AS 顧客名
+  FROM sales
+  WHERE quantity >= 100;
+  #3
+  SELECT productid,productname
+  FROM products
+  WHERE productid IN(
+    SELECT productid
+    FROM  sales
+    GROUP BY productid
+    HAVING SUM(quantity) >= 100); 
+  #4
+  SELECT employeeid,employeename,(
+    SELECT MAX(amount)
+    FROM salary
+    WHERE employees.employeeid = salary.employeeid
+    GROUP BY employeeid
+    HAVING MAX(amount) >= 300000
+  ) AS 最高給与額
+  FROM employees
+  WHERE employeeid IN(
+    SELECT employeeid
+    FROM salary
+    GROUP BY employeeid
+    HAVING MAX(amount) >= 300000
+  );
+  #5
+  SELECT saleid,quantity,customerid
+  ,(SELECT customername FROM customers WHERE sales.customerid = customers.customerid) AS 顧客名
+  ,(SELECT productname FROM products WHERE sales.productid = products.productid) AS 商品名
+  FROM sales
+  WHERE quantity >= 100;
+
+複数テーブルの結合を行う
+  SELECT
+  customers.prefecturalid,prefecturals.prefecturalname AS 都道府県
+  ,COUNT(*) AS 顧客数
+  FROM customers JOIN prefecturals ON customers.prefecturalid = prefecturals.prefecturalid
+  GROUP BY 
+  customers.prefecturalid,prefecturals.prefecturalname;
+  #1
+  SELECT employees.employeename
+  ,salary.paydate,salary.amount
+  FROM salary JOIN employees ON salary.employeeid = employees.employeeid
+  ORDER BY salary.employeeid;
+  #5
+  SELECT customers.customername,prefecturals.prefecturalname,customerclasses.customerclassname
+  FROM customers,prefecturals,customerclasses
+  WHERE customers.prefecturalid = prefecturals.prefecturalid AND
+    customers.customerclassid = customerclasses.customerclassid
+  ORDER BY customers.prefecturalid;
+  -- WHERE で複数条件を指定するときはANDで結合？
+
+複数テーブルの結合を行う（２）
+  SELECT
+    d.departmentname AS 部門名
+    ,AVG(s.amount) AS 部門別平均給与額
+  FROM
+    salary AS s
+      JOIN
+      belongto AS b
+      ON s.employeeid = b.employeeid
+        JOIN
+        departments AS d
+        ON b.departmentid = d.departmentid
+  GROUP BY 
+    d.departmentname;
+  -- 省略なし
+  SELECT departments.departmentname AS 部門名
+  ,AVG(salary.amount) AS 部門別平均給与額
+  FROM salary JOIN belongto ON salary.employeeid = belongto.employeeid
+    JOIN departments ON belongto.departmentid = departments.departmentid
+  GROUP BY departments.departmentname;
+
+外部結合を行う（OUTERJOIN）
+  SELECT p.productname
+  ,AVG(p.price * 
+  CASE
+    WHEN s.quantity IS NULL THEN 0
+    ELSE s.quantity END) AS 平均販売価格
+  FROM
+    products AS p
+      LEFT OUTER JOIN
+      sales AS s
+      ON s.productid = p.productid
+  GROUP BY p.productname;
+  #5 謎
+  SELECT employees.employeename
+  ,CASE WHEN salary.paydate = '2007-02-25' THEN salary.amount
+        ELSE 0 END AS 支給額
+  FROM salary
+  LEFT OUTER JOIN
+  employees ON employees.employeeid = salary.employeeid
+  WHERE salary.paydate = '2007-02-25'
+  GROUP BY employees.employeeid
+
+
+   SELECT employees.employeename,employees.employeeid
+  ,
+  FROM employees
+  LEFT OUTER JOIN
+  salary ON employees.employeeid = salary.employeeid
+  GROUP BY employeeid
+
+  SELECT employeeid,MAX
+
+      SELECT
+        e.EmployeeName AS 従業員名
+    ,   CASE
+            WHEN e.EmployeeID NOT IN (SELECT EmployeeID FROM Salary WHERE PayDate = '2007-02-25') THEN 0
+            ELSE (SELECT amount FROM salary WHERE paydate = '2007-02-25')
+        END AS 支給額
+    ,   e.EmployeeID AS ID
+    FROM
+        Employees AS e
+            LEFT OUTER JOIN
+        Salary AS s
+            ON e.EmployeeID = s.EmployeeID
+    GROUP BY
+        e.EmployeeID
+    ;
+
+テーブルの作成
+  CREATE TABLE panda(id int(11) PRIMARY KEY,
+  name Varchar(20),
+  birthday date,
+  weight int(11));
+
+データの追加
+  INSERT INTO panda VALUE(1, 'Ri Ri', '2005-08-26', 135),
+  (2, 'Shin Shin', '2005-07-03', 120),
+  (3, 'Xiang Xiang', '2017-06-12', 135);
+
+
+
+データベースの作成
+  CREATE DATABASE favorite DEFAULT CHARACTER SET utf8mb4;
+
+  テーブルの作成
+    CREATE TABLE bungo (id int(11) PRIMARY KEY,
+    name Varchar(20),
+    birthday date,
+    age int(11)
+    motto Varchar(30));
+
+    CREATE TABLE bungo(id int(11) PRIMARY KEY,
+    name Varchar(20),
+    birthday date,
+    age int(11),
+    motto Varchar(20),
+    food Varchar(20));
+
+
+    既存のテーブル構成と同じ構成のテーブルを作成する
+    CREATE TABLE hebuban AS SELECT * FROM bungo;　**まだ
+
+    **つづきはINSERTから
+    INSERT INTO bungo VALUE(1,'太宰治','2100-06-19',22,'清く明るく元気な自殺'),
+    (2,'中島敦','2100-05-05',18,'生きているならいいじゃない'),(3,'江戸川乱歩','2100-10-21',26,'僕が良ければすべてよし'),
+    (4,'芥川龍之介','2100-03-01',20,'死を惧れよ、殺しを畏れよ');
+
+
+    ALTER TABLE hebuban ADD team Varchar(20) NULL;
+
+    INSERT INTO hebuban VALUE(1,'茅森月歌','2100-06-24','あたしの伝説はこれから始まる','31A'),
+    (2,'朝倉可憐','2100-07-11','呼吸を止めるように息の根を止める','31A'),(3,'蒼井えりか','2100-07-07','どうか安寧な記憶を','31B'),
+    (4,'水瀬すもも','2100-09-06','ニブルヘイムで凍えろにゃ','31B'),(5,'豊後弥生','2100-04-01','世界征服開始でゲス!','31C'),(6,'ヴリティカ・バラクリシュナン','2100-01-26','数こそ万物の根源','31X');
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+ 
