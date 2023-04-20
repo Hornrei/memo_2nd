@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+body{
+    font-family: sans-serif;
+}
+
+.nav{
+    list-style: none;
+    width:480px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.nav a{
+    display: block;
+    width:120px;
+    height:45px;
+    text-align: center;
+    font-weight:bold;
+    color:#000;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.dropdown{
+    /*
+    あらかじめドロップダウンは非表示にしておく
+    display: none;
+    */
+    list-style: none;
+    position: absolute;
+    top:30px;
+    left:240px;
+}
+
+.dropdown a{
+    background-color: #eee;
+    display: block;
+    width:120px;
+    height:30px;
+    line-height: 30px;
+    border-bottom:1px solid #999;
+    text-align: center;
+    color:#000;
+    font-size: 14px;
+    font-weight:normal;
+    transition: 0.5s;
+    
+}
+
+.dropdown a:hover{
+   opacity:0.5;
+}
+
+
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="dd.css">
+ <title>ドロップダウンメニュー</title>
+<style>
+</style>
+
+<script>
+
+</script>
+</head>
+<body>
+<h1>JQuery基礎</h1>
+<h2>ドロップダウンメニュー</h2>
+<h3>仕様</h3>
+<ol>
+<li>GALLERYボタンにマウスオーバーでドロップダウンがフェードインする</li>
+<li>GALLERYボタンまたはドロップダウンからマウスを外すとドロップダウンがフェードアウトする</li>  
+</ol>
+
+<nav>
+<ul class="nav">
+<li><a href="#">HOME</a></li>
+<li><a href="#">ABOUT</a></li>
+<li class="btn3"><a href="#">GALLERY</a>
+<!--ここからドロップダウン-->
+<ul class="dropdown">
+<li><a href="#">Web</a></li>
+<li><a href="#">広告</a></li>
+<li><a href="#">パッケージ</a></li>
+<li><a href="#">装丁</a></li>
+</ul>    
+ <!--ここまでドロップダウン-->   
+</li>
+<li><a href="#">ACCESS</a></li>
+</ul>
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        const $galleryBtn = $(".btn3");
+        const $dropDownMenu = $(".dropdown");
+        // あらかじめメニューを消しておく
+        $dropDownMenu.hide();
+
+        // イベントの設定
+        $galleryBtn.on("mouseover",function(){
+          $dropDownMenu.stop().fadeIn();
+          });
+        
+        $galleryBtn.on("mouseout",function(){
+          $dropDownMenu.stop().fadeOut();
+        });
+        
+          
+
+    </script>
+</body>
+</html>
