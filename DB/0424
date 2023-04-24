@@ -1,0 +1,101 @@
+-- 内部結合
+  -- 結合条件にあったレコードのみを表示
+-- 外部結合
+  -- 結合条件にあったレコード以外も表示
+
+
+-- WHERE結合（結合条件にあったレコードのみを表示）
+  -- この場合は、salesに”佐藤聖子"が存在しないので、sales.employee_id = employees.employee_id　この条件に合わない
+  -- ので表示されない
+SELECT * FROM sales,fruits,employees
+WHERE sales.fruit_id = fruits.id
+AND sales.employee_id = employees.employee_id;
++---------+------------+----------+-------------+----+--------+-------+-------------+----------------+
+| sale_id | sale_date  | fruit_id | employee_id | id | name   | price | employee_id | employlee_name |
++---------+------------+----------+-------------+----+--------+-------+-------------+----------------+
+|       1 | 2022-11-22 |        1 | E01         |  1 | apple  |   150 | E01         | TSURUTAKA      |
+|       2 | 2022-11-22 |        3 | E01         |  3 | pear   |  1000 | E01         | TSURUTAKA      |
+|       3 | 2022-11-22 |        2 | E02         |  2 | banana |   200 | E02         | じゃんぴ       |
+|       4 | 2022-12-31 |        1 | E01         |  1 | apple  |   150 | E01         | TSURUTAKA      |
+|       5 | 2022-12-31 |        1 | E01         |  1 | apple  |   150 | E01         | TSURUTAKA      |
+|       6 | 2023-01-11 |        2 | E02         |  2 | banana |   200 | E02         | じゃんぴ       |
++---------+------------+----------+-------------+----+--------+-------+-------------+----------------+
+
+-- 内部結合
+SELECT * FROM sales JOIN fruits ON sales.fruit_id = fruits.id
+JOIN employees ON sales.employee_id = employees.employee_id;
+  -- 名前の省略ができる
+SELECT * FROM sales S JOIN fruits F ON S.fruit_id = F.id
+JOIN employees E ON S.employee_id = E.employee_id;
+
++---------+------------+----------+-------------+----+--------+-------+-------------+----------------+
+| sale_id | sale_date  | fruit_id | employee_id | id | name   | price | employee_id | employlee_name |
++---------+------------+----------+-------------+----+--------+-------+-------------+----------------+
+|       1 | 2022-11-22 |        1 | E01         |  1 | apple  |   150 | E01         | TSURUTAKA      |
+|       2 | 2022-11-22 |        3 | E01         |  3 | pear   |  1000 | E01         | TSURUTAKA      |
+|       3 | 2022-11-22 |        2 | E02         |  2 | banana |   200 | E02         | じゃんぴ       |
+|       4 | 2022-12-31 |        1 | E01         |  1 | apple  |   150 | E01         | TSURUTAKA      |
+|       5 | 2022-12-31 |        1 | E01         |  1 | apple  |   150 | E01         | TSURUTAKA      |
+|       6 | 2023-01-11 |        2 | E02         |  2 | banana |   200 | E02         | じゃんぴ       |
++---------+------------+----------+-------------+----+--------+-------+-------------+----------------+
+
+  -- それを更に絞り込める
+SELECT * FROM sales S JOIN fruits F ON S.fruit_id = F.id
+JOIN employees E ON S.employee_id = E.employee_id
+WHERE S.employee_id = "E01";
+
++---------+------------+----------+-------------+----+-------+-------+-------------+----------------+
+| sale_id | sale_date  | fruit_id | employee_id | id | name  | price | employee_id | employlee_name |
++---------+------------+----------+-------------+----+-------+-------+-------------+----------------+
+|       1 | 2022-11-22 |        1 | E01         |  1 | apple |   150 | E01         | TSURUTAKA      |
+|       2 | 2022-11-22 |        3 | E01         |  3 | pear  |  1000 | E01         | TSURUTAKA      |
+|       4 | 2022-12-31 |        1 | E01         |  1 | apple |   150 | E01         | TSURUTAKA      |
+|       5 | 2022-12-31 |        1 | E01         |  1 | apple |   150 | E01         | TSURUTAKA      |
++---------+------------+----------+-------------+----+-------+-------+-------------+----------------+
+
+
+ 
+
+-- 外部結合
+  -- LEFT OUTER JOIN  ：JOINをはさんで左のテーブルにあるレコードはすべて活かす  
+  -- RIGHT OUTER JOIN ：JOINをはさんで右のテーブルにあるレコードはすべて活かす  
+  -- FULL OUTER JOIN ：JOINをはさんでどっちのテーブルもすべて活かす
+
+
+
+-- sales表とemployees表をsales表をメインに外部結合
+SELECT * FROM sales LEFT OUTER JOIN employees
+ON sales.employee_id = employees.employee_id;
+
++---------+------------+----------+-------------+-------------+----------------+
+| sale_id | sale_date  | fruit_id | employee_id | employee_id | employlee_name |
++---------+------------+----------+-------------+-------------+----------------+
+|       1 | 2022-11-22 |        1 | E01         | E01         | TSURUTAKA      |
+|       2 | 2022-11-22 |        3 | E01         | E01         | TSURUTAKA      |
+|       3 | 2022-11-22 |        2 | E02         | E02         | じゃんぴ       |
+|       4 | 2022-12-31 |        1 | E01         | E01         | TSURUTAKA      |
+|       5 | 2022-12-31 |        1 | E01         | E01         | TSURUTAKA      |
+|       6 | 2023-01-11 |        2 | E02         | E02         | じゃんぴ       |
++---------+------------+----------+-------------+-------------+----------------+
+
+-- sales表とemployees表をemployees表をメインに外部結合
+SELECT * FROM sales RIGHT OUTER JOIN employees
+ON sales.employee_id = employees.employee_id;
++---------+------------+----------+-------------+-------------+----------------+
+| sale_id | sale_date  | fruit_id | employee_id | employee_id | employlee_name |
++---------+------------+----------+-------------+-------------+----------------+
+|       1 | 2022-11-22 |        1 | E01         | E01         | TSURUTAKA      |
+|       2 | 2022-11-22 |        3 | E01         | E01         | TSURUTAKA      |
+|       3 | 2022-11-22 |        2 | E02         | E02         | じゃんぴ       |
+|       4 | 2022-12-31 |        1 | E01         | E01         | TSURUTAKA      |
+|       5 | 2022-12-31 |        1 | E01         | E01         | TSURUTAKA      |
+|       6 | 2023-01-11 |        2 | E02         | E02         | じゃんぴ       |
+|    NULL | NULL       |     NULL | NULL        | E03         | 佐藤聖子       |
++---------+------------+----------+-------------+-------------+----------------+
+
+
+
+-------------------------------------------------------------
+kadai01
+
+

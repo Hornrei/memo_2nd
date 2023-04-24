@@ -138,7 +138,7 @@
   GROUP BY hirefiscalyear;
 
 並び替えを行う（ORDER BY）
-  デフォルトは昇順（小さい順）降順にするには列名の後ろにDESCを入れる
+  デフォルトは昇順（小さい順）。降順にするには列名の後ろにDESCを入れる
   SELECT productname
   FROM products
   ORDER BY price;
