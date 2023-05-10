@@ -1,0 +1,21 @@
+ISOが開発しているOSI        OpenSystemsInterconnection
+
+物理層
+    電線の中どうやって送るか
+
+FDMA　G1
+TDMA
+CDMA
+SDMA
+
+
+
+L6　プレゼンテーション層 キャラクターセット　違う言語同士
+L5　セッション
+L4　トランスポート　TCP,UDP
+L3　ネットワーク　IP IPアドレス
+L2　データリンク　Ethernet　MACアドレス
+L1　物理
+
+TCP　over IPになる
+TCPの上にIPが動く
