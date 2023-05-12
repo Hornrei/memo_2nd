@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<!--JQuery本体-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+<script></script>
+
+<style>
+#bird{
+position: absolute;
+top:200px;
+left:10px;
+}
+</style>
+
+</head>
+<body>
+<h2>animationメソッドを使った移動のアニメーション</h2>
+<p>
+鳥をクリックすると500px右に移動する。<br> 
+次に100px斜め上に移動する。<br>
+次に300px右に移動する。<br>
+アニメーションが終わると同時にページ遷移する
+</p>
+    
+<img src="images/bird.gif" id="bird"> 
+
+<script>
+    // オブジェクトの作成
+    const $bird = $("#bird");
+    // イベントの設定
+    $bird.on("click",function(){
+        $bird.animate({"left": "510px"},2000, "swing").animate({"top":"100px","left":"610px"},1000,"swing").animate({"left":"910"},2000,function(){
+            location.href = "https://magus-bride.jp/"
+        });
+    });
+
+    // JSでのページ遷移
+    // locarion.href = "URL"
+
+
+
+</script>
+</body>
+</html>
+
+

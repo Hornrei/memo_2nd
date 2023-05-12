@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+    <title>JQuery基礎</title>
+    <!-- JQuery本体 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1 id="midashi">この文字の色が変わります！</h1>
+
+    <h2 id = "size">この文字サイズが変化するよ！</h2>
+    <button id="large-button">LARGE</button>
+    <button id="small-button">SMALL</button>
+
+    <script>
+        // JS
+        // const h1Obj = document.getElementById("midashi");
+
+        // h1Obj.style.color = "red";
+
+
+        //JQuery
+        // $("#midashi").css("color", "blue");
+        // $("#midashi").css("font-size","50px");
+
+        const $h1Obj = $("#midashi");
+        $h1Obj.css("color","green");
+
+        //
+        const mojisize = document.getElementById("size");
+        const Lbutton = document.getElementById("large-button");
+        const Sbutton = document.getElementById("small-button");
+        
+        // Lbutton.addEventListener("click",function(){
+        //     mojisize.style.fontSize = "50px";
+        // });
+
+        // Sbutton.addEventListener("click",function(){
+        //     mojisize.style.fontSize = "10px";
+        // });
+
+        //JQuery
+        const $h1text = $("#size");
+        const $lbutton = $("#large-button");
+        const $sbutton = $("#small-button");
+
+        $lbutton.on("click",function(){
+            $h1text.css("font-size","50px");
+        });
+        
+        $sbutton.on("click",function(){
+            $h1text.css("font-size","10px");
+        });
+
+    </script>
+</body>
+</html>
