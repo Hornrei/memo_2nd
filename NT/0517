@@ -1,0 +1,10 @@
+
+FDMA 1G      LAN Local area network
+TDMA 2G      WAN Wide area network(インターネット) 
+CDMA 3G　　　CAN　Campus area network
+LTE　4G       CAN Controlled area network
+
+
+
+L2　Macアドレスを見てどこに投げるか決定
+L3　IPアドレスを見て決定
