@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/* 背景ロゴ */
+body {
+  background-image: url(../img/kk_ogp.png);
+  background-repeat: no-repeat;
+  background-position: center 100px;
+}
+
+/*三本線メニュー*/
+/* メニューを左上に配置 */
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+/* マウスの反応領域 */
+a.btn {
+  display: block;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+/* 三本のうち真ん中の線  */
+.line_icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: #000;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/*上の線*/
+.line_icon:before {
+  position: absolute;
+  top: -10px;
+  /* 真ん中の線が基準位置になるらしい */
+  left: 0;
+  display: block;
+  content: "";
+  width: 30px;
+  height: 1px;
+  background-color: #000;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/*下の線*/
+.line_icon:after {
+  position: absolute;
+  top: 10px;
+  /* 真ん中の線が基準位置になるらしい */
+  left: 0;
+  display: block;
+  content: "";
+  width: 30px;
+  height: 1px;
+  background-color: #000;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/*メニュークリック時に
+  .line_iconと.closebtnを切り替える
+  三→×へ
+*/
+
+/*真ん中の線を幅0にする*/
+.closebtn {
+  width: 0;
+}
+
+/*×になったときの上と下の線の縦位置を揃える*/
+.closebtn:before {
+  top: 0;
+  background-color: #fff;
+
+}
+
+.closebtn:after {
+  top: 0;
+  background-color: #fff;
+}
+
+/*上の線を45度回転*/
+.closebtn:before {
+  transform: rotate(45deg);
+}
+
+/*上の線を-45度回転*/
+.closebtn:after {
+  transform: rotate(-45deg);
+}
+
+/* 全画面メニュー */
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* ナビゲーション */
+.screen__menu li {
+  margin: 0 0 30px 0;
+}
+
+.screen__menu a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.screen__menu a:hover {
+  opacity: 0.5;
+  text-decoration: underline;
+}
