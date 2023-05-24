@@ -24,10 +24,7 @@ header{
 	height:80px;
 }
 
-header img.small-logo{
-	width: 240px;
-	margin: 20px 0 0 0;
-}
+
 
 div#header_inner{
 	width:1000px;
@@ -44,11 +41,15 @@ header img.logo{
 	}
 
 
+header img.small-logo{
+		width: 240px;
+		margin: 20px 0 0 0;
+	}
 
 
 	
 
-nav.gnav{
+.gnav{
 	width:523px;
 	margin: 51px 0 0 0;
 	-moz-transition: all 0.5s;
@@ -60,12 +61,12 @@ nav.gnav{
 /* 縮小時のナビ */
 
 	
-nav.gnav ul{
+.gnav ul{
 	display: flex;
 	justify-content: space-between;
 	}
 
-nav.gnav a{
+.gnav a{
 	text-decoration: none;
 	color:#676767;
 	font-size:16px;
@@ -79,27 +80,27 @@ nav.gnav a{
 	transition: 0.3s;
 }
 
-nav.gnav a:hover{opacity: 0.5;}
+.gnav a:hover{opacity: 0.5;}
 
-nav.gnav a.btn1{
+.gnav a.btn1{
 	background-image: url(../images/icon1.jpg);
 	background-repeat: no-repeat;
 	background-position: 0 0;
 }
 
-nav.gnav a.btn2{
+.gnav a.btn2{
 	background-image: url(../images/icon2.jpg);
 	background-repeat: no-repeat;
 	background-position: 0 0;
 }
 
-nav.gnav a.btn3{
+.gnav a.btn3{
 	background-image: url(../images/icon3.jpg);
 	background-repeat: no-repeat;
 	background-position: 0 0;
 }
 
-nav.gnav a.btn4{
+.gnav a.btn4{
 	background-image: url(../images/icon4.jpg);
 	background-repeat: no-repeat;
 	background-position: 0 0;

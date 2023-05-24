@@ -21,22 +21,45 @@ $pagetopBtn.on("click",function(){
 
 
 //スクロール途中でヘッダーが縮小する
-// オブジェクトの準備
-const $header = $("header");
-const $logo = $(".logo");
-const $nav = $("#gnav");
+
 
 //スクロールイベントの設定
+
+const $logo = $(".logo");
+const $nav = $(".gnav");
+const $header = $("header");
 $(window).on("scroll",function(){
-    // スクロール距離を取得して変数に格納する
-    const scrollNum = $("window").scrollTop();
+
+    const scrollNum = $(window).scrollTop();
     if(scrollNum > 150){
         $header.addClass("small-header");
         $logo.addClass("small-logo");
-        $nav.addClass("small-logo");
+        $nav.addClass("small-nav");
     }else{
         $header.removeClass("small-header")
         $logo.removeClass("small-logo");
-        $nav.removeClass("small-logo");
+        $nav.removeClass("small-nav");
     }
 })
+
+
+
+
+// $(window).on("scroll",function(){
+
+//     // オブジェクトの準備
+//     const $header = $("header");
+//     const $logo = $(".logo");
+//     const $nav = $(".gnav");
+//     // スクロール距離を取得して変数に格納する
+//     const scrollNum = $("window").scrollTop();
+//     if(scrollNum > 150){
+//         $header.addClass("small-header");
+//         $logo.addClass("small-logo");
+//         $nav.addClass("small-logo");
+//     }else{
+//         $header.removeClass("small-header")
+//         $logo.removeClass("small-logo");
+//         $nav.removeClass("small-logo");
+//     }
+// })
