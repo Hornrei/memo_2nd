@@ -1,0 +1,473 @@
+@charset "UTF-8";
+
+body{
+	margin: 127px 0 0 0;
+}
+
+header{
+	width:100%;
+	height:127px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+
+/* 縮小時のヘッダー */
+.small-header{
+	height:80px;
+}
+
+
+
+div#header_inner{
+	width:1000px;
+	margin:0 auto;
+	display: flex;
+	justify-content: space-between;
+	}
+
+header img.logo{
+	width:346px;
+	height:auto;
+	margin:38px 0 0 0;
+	transition: 0.5s;
+	}
+
+
+header img.small-logo{
+		width: 240px;
+		margin: 20px 0 0 0;
+	}
+
+
+	
+
+.gnav{
+	width:523px;
+	margin: 51px 0 0 0;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	}
+
+/* 縮小時のナビ */
+
+	
+.gnav ul{
+	display: flex;
+	justify-content: space-between;
+	}
+
+.gnav a{
+	text-decoration: none;
+	color:#676767;
+	font-size:16px;
+	font-family: "小塚ゴシック Pro",sans-serif;
+	font-weight: 400;
+	letter-spacing: 1px;
+	display:block;
+	height:26px;
+	line-height: 29px;
+	text-indent: 24px;
+	transition: 0.3s;
+}
+
+.gnav a:hover{opacity: 0.5;}
+
+.gnav a.btn1{
+	background-image: url(../images/icon1.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.gnav a.btn2{
+	background-image: url(../images/icon2.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.gnav a.btn3{
+	background-image: url(../images/icon3.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.gnav a.btn4{
+	background-image: url(../images/icon4.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+
+.small-nav{
+	width: 380px;
+	margin: 20px 0 0 0;
+}
+.small-nav a{
+	size: 12px;
+}
+
+	
+div#mainvisual{
+	width:100%;
+	height:441px;
+	background-image:url(../images/kin1.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	margin:0 0 90px 0;
+	}
+
+h2.home{
+	text-align:center;
+	font-size:50px;
+	font-family:sans-serif;
+	font-weight:lighter;
+	letter-spacing:2px;
+	color:#676767;
+	margin:0 0 65px 0;
+}
+	
+main#home{
+	display:flex;
+	justify-content: space-between;
+	width:1000px;
+	margin:0 auto 152px auto;
+	}
+
+
+section.service{
+	width:300px;
+	text-align:center;
+  position: relative;
+}
+
+section.service h3{
+	font-size:30px;
+	font-family:sans-serif;
+	font-weight:lighter;
+	letter-spacing:2px;
+	color:#676767;
+	margin:0 0 30px 0;
+}
+
+
+section.service p{
+	text-align:left;
+	font-size:16px;
+	font-family:sans-serif;
+	font-weight:lighter;
+	line-height:190%;
+	color:#676767;
+	margin: 40px 0 0 0;
+}
+
+
+	
+footer{
+	width:100%;
+	height:164px;
+	background:#f0f0f0;
+	clear:both;
+	}
+	
+	
+footer p{
+	width:1000px;
+	margin:0 auto;
+	padding:40px 0 0 0;
+	text-align:right;
+	font-size:14px;
+	color:#686868;
+	}
+
+
+
+/*WORKSページ*/
+
+div#visual_works{
+	width:100%;
+	height:250px;
+	background-image:url(../images/visual_works.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	margin:0 0 62px 0;
+	}
+	
+h1{
+	width:1000px;
+	margin: 0 auto;
+	font-size: 46px;
+	color: #fff;
+	font-family: sans-serif;
+	font-weight: normal;
+	line-height: 250px;
+	text-indent: 46px;
+}
+
+div#container{
+	width:1000px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+main#works{
+	width:682px;
+	order:2;
+	}
+
+aside{
+	width:276px;
+	order:1;
+	position: relative;
+	}
+
+nav#sidenav{
+	position: absolute;
+	top:0;
+	left: 0;
+}
+	
+aside img{
+	border-bottom:1px solid #d3d3d3;
+	}
+	
+aside h3{
+	margin:0 0 14px 0;
+	}
+	
+aside ul{
+	margin:0 0 33px 0;
+	}
+
+nav#sidenav h3{
+	width:276px;
+	height:39px;
+	background-color:#676767;
+	color:#fff;
+	text-align:center;
+	line-height:39px;
+	font-weight:bold;
+	font-family:sans-serif;
+	letter-spacing:2px;
+	border-radius:8px 8px 0 0;
+}
+
+
+
+nav#sidenav a{
+	display:block;
+	width:276px;
+	height:62px;
+	font-size:18px;
+	text-align:center;
+	line-height:62px;
+	color:#676767;
+	text-decoration:none;
+	border-bottom:1px solid #d3d3d3;
+	-webkit-transition: 0.3s ease-in-out;
+	-moz-transition: 0.3s ease-in-out;
+	-o-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+		  }
+
+nav#sidenav a:hover{
+	opacity: 0.4;
+	filter: alpha(opacity=60);
+	}
+
+nav#sidenav a.all{
+	background-image:url(../images/zenbu.jpg);
+	background-repeat:no-repeat;
+	background-position:23px 17px;
+}
+
+nav#sidenav a.kami{
+	background-image:url(../images/kami.jpg);
+	background-repeat:no-repeat;
+	background-position:18px 17px;
+}
+
+nav#sidenav a.web{
+	background-image:url(../images/web.jpg);
+	background-repeat:no-repeat;
+	background-position:18px 17px;
+}
+
+nav#sidenav a.sonota{
+	background-image:url(../images/sonota.jpg);
+	background-repeat:no-repeat;
+	background-position:22px center;
+}
+	
+
+h2.midashi_works{
+	font-size:18px;
+	font-weight: bold;
+	color:#676767;
+	border-bottom: 2px solid #676767;
+	padding:0 0 5px 0;
+	margin:0 0 20px 0;
+	}
+
+ul.works{
+	display:flex;
+  flex-wrap:wrap;
+	justify-content: space-between;
+	margin:0 0 30px 0;
+	}
+
+ul.works li{
+	list-style-type:none;
+	margin:0 0 20px 0;
+	}
+
+
+
+div#photo{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	width:70%;
+	height:600px;
+	z-index: 102;
+}
+
+div#photo img{
+	width:100%;
+	height:auto;
+	border: 4px solid #fff;
+}
+
+
+/*PROFILE*/
+div#visual_profile{
+	width:100%;
+	height:250px;
+	background:url(../images/visual_profile.jpg) no-repeat center top;
+	background-size:cover;
+	}
+
+
+main#profile{
+	width:800px;
+	margin:62px auto 52px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	}
+
+
+section.profile{
+	width: 469px;
+}
+
+h3.name{
+	font-size: 20px;
+	margin: 0 0 33px 0;
+}
+
+span.ruby{
+	font-size:16px;
+	font-weight: normal;
+}
+
+span.en{
+	font-size:14px;
+	font-weight: normal;
+	display: block;
+	margin: 8px 0 0 0;
+}
+
+p.txt{
+	line-height: 150%;
+	margin: 0 0 32px 0;
+}
+
+p.small{
+	font-size: 14px;
+	color: #686868;
+}
+
+
+
+/*CONTACT*/
+div#visual_contact{
+	width:100%;
+	height:250px;
+	background:url(../images/visual_contact.jpg) no-repeat center top;
+	background-size:cover;
+	margin:0 0 62px 0;
+	}
+
+
+
+main#_contact{
+	width:800px;
+	margin:0 auto;
+	}
+
+
+ul#sns{
+	list-style: none;
+	width:153px;
+	margin: 0 auto 282px auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+ul#sns img{
+	transition: 1.0s ;
+}
+
+ul#sns img:hover{
+	opacity: 0.5 ;
+}
+
+p.contacttxt{
+	text-align: center;
+	margin: 0 0 100px 0;
+}
+
+
+/*
+
+a.mailaddress{
+	background:#004329;
+	color:#fff;
+	font-size:22px;
+	text-decoration:none;
+	padding:3px 20px;
+	border-radius:30px;
+	}
+	
+a.mailaddress:hover{
+	background:#7BBD8F;
+	color:#fff;
+	font-size:22px;
+	}
+*/
+
+
+/*ページトップ*/
+p#totop img{
+	position:fixed;
+	right:20px;
+	bottom:20px;
+}
+
+
+
+
+

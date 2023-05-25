@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>each()サンプル</title>
+</head>
+
+<body>
+  <h2>each()サンプル</h2>
+  <p>
+    liタグの文字列を取得して、alert()で順番に出力するサンプル。
+  </p>
+  <ul>
+    <li class="abc">A</li>
+    <li class="abc">B</li>
+    <li class="abc">C</li>
+    <li class="abc">D</li>
+    <li class="abc">E</li>
+  </ul>
+
+  <button>Click!</button>
+
+  <div id="TextArea">
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    // オブジェクトの作成
+    const $btn = $("button");
+    const $liTag = $(".abc");
+    // イベントの設定
+    $btn.on("click",function(){
+      $liTag.each(function(){
+        const Text = $(this).text();    //$(this)で順番に取り出す
+        alert(Text);
+      })
+    })
+  </script>
+
+</body>
+
+</html>

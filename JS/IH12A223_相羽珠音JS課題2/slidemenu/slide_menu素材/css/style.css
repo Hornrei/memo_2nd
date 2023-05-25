@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+}
+
+header {
+	position: relative;
+	padding: 20px;
+	color: #40555F;
+	background: #58C8D0;
+}
+
+header h1 {
+	font-size: 24px;
+	margin-left: 40px;
+	font-weight: bold;
+}
+
+
+
+.sidenav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 250px;
+	/* サイドナビをあらかじめマイナスマージンで左端に隠しておく */
+	margin-left: -250px;
+	background: #5C7079;
+}
+
+.sidenav-list {
+	list-style-type: none;
+}
+
+.link-text {
+	text-decoration: none;
+	display: block;
+	padding: 20px 25px;
+	color: #FFF;
+	border-bottom: 1px solid #40555F;
+}
+
+.link-text:hover {
+	background: #56676F;
+}
+
+main {
+	display: block;
+	padding: 50px 0 20px;
+	color: #333;
+	background: #FFF;
+	width: 100%;
+}
+
+section {
+	padding: 0 25px;
+}
+
+section h1 {
+	font-size: 1.6em;
+	color: #40555F;
+	margin-bottom: 10px;
+}
+
+section p {
+	color: #5C7079;
+	margin-bottom: 50px;
+	line-height: 1.5em;
+}
+
+
+
+/*三本線メニュー*/
+/* メニューを左上に配置 */
+.menu {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	z-index: 1;
+}
+
+/* マウスの反応領域 */
+.btn {
+	display: block;
+	width: 30px;
+	height: 20px;
+	position: relative;
+}
+
+/* 三本のうち真ん中の線  */
+.line_icon {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	display: block;
+	width: 30px;
+	height: 1px;
+	background-color: #ffffff;
+	opacity: 1;
+	transition: 0.5s;
+}
+
+/*上の線*/
+.line_icon:before {
+	position: absolute;
+	top: -10px;
+	left: 0;
+	display: block;
+	content: "";
+	width: 30px;
+	height: 1px;
+	background-color: #ffffff;
+	opacity: 1;
+	transition: 0.5s;
+}
+
+/*下の線*/
+.line_icon:after {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	display: block;
+	content: "";
+	width: 30px;
+	height: 1px;
+	background-color: #ffffff;
+	opacity: 1;
+	transition: 0.5s;
+}
+
+/*メニュークリック時に
+  .line_iconと.closebtnを切り替える
+  三→×へ
+*/
+
+/*真ん中の線を幅0にする*/
+.closebtn {
+	width: 0;
+}
+
+/*×になったときの上と下の線の縦位置を揃える*/
+.closebtn:before {
+	top: 0;
+}
+
+.closebtn:after {
+	top: 0;
+}
+
+/*上の線を45度回転*/
+.closebtn:before {
+	transform: rotate(45deg);
+}
+
+/*上の線を-45度回転*/
+.closebtn:after {
+	transform: rotate(-45deg);
+}
