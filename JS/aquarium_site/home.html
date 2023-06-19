@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <!--Jquery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/haikeiJquery.js"></script>
+    <script src="./js/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
+    <script src="./js/wavify.js"></script>
+   
+
+    <!-- リンク -->
+    <link href="./css/home.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/page.css">
+
+   
+   
+
+</head>
+<body>
+    <header>
+        <a href="./home.html"><img src="./images/logo.png"></a>
+        <div class="menu">
+            <a href="#" class="btn">
+                <span class="line_icon"></span>
+            </a>
+        </div>
+        <nav class="screen">
+            <ul class="screen__menu">
+              <li><a href="">Home</a></li>
+              <li><a href="http://weblesson.info/hal/?cat=10">About</a></li>
+              <li><a href="index.html">Dictionary</a></li>
+              <li><a href="https://churaumi.okinawa/">Official Site</a></li>
+            </ul>
+        </nav>
+
+
+
+    </header>
+
+    
+
+    <div class="bg-slider">
+        <div class="title">
+        <span style="border-bottom: solid 2px white;"><h1 class="bg-slider__title">美ら海生き物図鑑</h1></span>
+        <a href=""><button type="button" name="name" value="value">to the sea</button>
+
+        </div>
+    </div> 
+    
+
+
+
+
+    <script src="./js/haikeiJquery.js"></script>
+    <script>
+        jQuery(function($) {
+        $('.bg-slider').bgSwitcher({
+            images: ['./images/slide2.png','./images/slide3.png','./images/slide4.png','./images/slide1.png'], // 切り替える背景画像を指定
+        });
+        });
+
+    </script>
+
+
+<script src="./js/menu.js"></script>
+
+
+
+</body>
+</html>
