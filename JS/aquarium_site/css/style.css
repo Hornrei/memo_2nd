@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "title";
+    src: url(../fonts/ZenMaruGothic-Regular.ttf);
+}
+
+body,h1,h2,h3,h4,p,ul,ol{
+    margin: 0;
+    padding: 0;}
+  
+  ul,li {list-style: none;}
+  
+  a{text-decoration: none;}
+  
+  * {box-sizing: border-box;} paddingとborderを幅と高さに含める
+  img{vertical-align:top;}
+
+
+/* header */
+header{
+    background-color: #000;
+    display: flex;
+}
+
+/* タグメニュー */
+.tag-menu{
+    display: flex;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+.tag-menu li{
+    
+    text-align: center;
+    border: 1px solid #17206D;
+    border-radius: 30px 30px;
+    padding: 12px 30px;
+    margin: 0 50px 0 50px;
+    width: 150px;
+}
+
+h1{
+    color: aliceblue;
+}
+
+
+
+/* 図鑑コーナー */
+.fishes{
+    width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: #000;
+}
+
+.fishes img{
+    width: 400px;
+    height: 250px;
+    margin: 5px;
+    margin-top: 0;
+}
