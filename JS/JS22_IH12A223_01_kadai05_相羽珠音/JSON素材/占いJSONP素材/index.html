@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>星占いAPI</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>今日の星占い</h1>
+<div id="wrap">
+<h2>テスト　p.testに今日の牡羊座の占いデータを書き出す</h2>
+<p class="test"></p> 
+
+<p class="date"></p>  
+<!--ここに占いデータが書き込まれる-->
+</div>    
+    
+<!--JQuery本体-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--外部JS-->
+<script src="js/uranai.js"></script>
+<!--JSONPの読み込み-->
+<script src="http://api.jugemkey.jp/api/horoscope/free/jsonp?callback=uranai"></script>
+
+
+</body>
+</html>
+

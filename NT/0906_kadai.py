@@ -6,7 +6,7 @@ def tocidr(cidr):
     prefix_length = int(cidr.split("/")[1])
 
     # プレフィックス長を使用してサブネットマスクを計算
-    subnet_mask = (0xffffffff << (32 - prefix_length)) & 0xffffffff
+    subnet_mask = (-1 << (32 - prefix_length)) & -1
 
     # サブネットマスクを4つの8ビット数に分割
     subnet_mask_parts = [
@@ -76,6 +76,14 @@ host11 = calculate_host_portion(ip1ten,sub1ten)
 host12 =calculate_host_portion(ip2ten,sub1ten)
 host21 = calculate_host_portion(ip1ten,sub2ten)
 host22 = calculate_host_portion(ip2ten,sub2ten)
+
+def decToDot(num):
+    ret = str((num>>24)&0xFF) + '.' \
+    + str((num>>16)&0xFF) + '.' \
+    + str((num>>8)&0xFF) + '.' \
+    + str((num>>0)&0xFF)
+    return ret
+
 #同一か否か
 
 if (host11 == host12) and (host21 == host22):
@@ -94,9 +102,13 @@ if (ip1ten & sub1ten) == (ip2ten & sub1ten) and (ip1ten & sub2ten) == (ip2ten & 
 else:
     print("ばつ")
 
+# sub1への通信
+print(decToDot(ip1ten & sub1ten))
+print(decToDot(ip2ten & sub1ten))
 
-
-
+# sub2への通信
+print(decToDot(ip1ten & sub2ten))
+print(decToDot(ip2ten & sub2ten))
 
 
 
