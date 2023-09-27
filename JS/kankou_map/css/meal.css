@@ -109,3 +109,13 @@ section div p{
     margin-left: auto;
     margin-right: 0;
 }
+
+.element {
+    opacity: 0;
+    transition: opacity 0.2s; /* フェードインのアニメーションを追加 */
+  }
+
+  a p:hover{
+    transform: scale(0.9);
+transition-duration: 0.3s;
+}

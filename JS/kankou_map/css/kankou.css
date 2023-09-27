@@ -8,7 +8,7 @@
 }
 
 body{  
-    background-image: url(../images/noon_1.jpg);
+    background-image: url(../images/siro_back1.png);
     background-size: cover;
     background-attachment: fixed;
   background-position: center;
@@ -51,7 +51,7 @@ p{
 h2:before {
     content: "";
     position: absolute;
-    background: #2320ef59;
+    background: #efb42078;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -88,6 +88,12 @@ section{
 }
 
 
+a p:hover{
+    transform: scale(0.9);
+transition-duration: 0.3s;
+}
+
+
 
 section h3{
     font-size: 40px;
@@ -111,3 +117,14 @@ section div p{
     margin-left: auto;
     margin-right: 0;
 }
+
+.element {
+    opacity: 0;
+    transition: opacity 0.2s; /* フェードインのアニメーションを追加 */
+  }
+  
+  a p:hover{
+    transform: scale(0.9);
+transition-duration: 0.3s;
+}
+

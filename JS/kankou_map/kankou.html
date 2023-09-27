@@ -13,17 +13,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="css/kankou.css">
     <link rel="stylesheet" href="css/menu.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="./js/element.js"></script>
     
 </head>
 
 <body>
     <header>
-        <a href="#"><i class="fa-regular fa-house"></i></a>
+        <a href="index.html"><i class="fa-solid fa-house"></i></a>
         <ul>
-            <li><a href="#"><i class="fa-regular fa-map"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-person-walking"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-utensils"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-photo-film"></i></a></li>
+            <li><a href="map.html"><i class="fa-regular fa-map"></i></a></li>
+            <li><a href="kankou.html"><i class="fa-solid fa-person-walking"></i></a></li>
+            <li><a href="meal.html"><i class="fa-solid fa-utensils"></i></a></li>
+            <li><a href="photo.html"><i class="fa-solid fa-photo-film"></i></a></li>
         </ul>
     </header>
 
@@ -37,31 +39,31 @@
 
         <article>
             
-            <section class="right">
+            <section class="element right">
                 <img src="images/castles.png" alt="モンド">
                 <div>    
                     <h3>モンド城・西風大聖堂</h3>
-                    <p>モンド城内中央に位置する、西風大聖堂（セピュロス大聖堂）。風神バルバトスを祀っていて西風協会によって運営されている。巨大な神像とモンド建築様式の大聖堂はどこか荘厳な雰囲気を漂わせている。
+                    <p>モンド城内中央に位置する、西風大聖堂（セピュロス大聖堂）。<br>風神バルバトスを祀っていて西風協会によって運営されている。<br>巨大な神像とモンド建築様式の大聖堂はどこか荘厳な雰囲気を漂わせている。
                     </p>
-                    <p><i class="fa-regular fa-location-dot"></i>モンド城</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i>モンド城</p></a>
                 </div>
                 
             </section>
-            <section class="left">
+            <section class="element left">
                 <div>
                     <h3>ドラゴンスパイン</h3>
-                    <p>モンドの南東部にある地域であり、広大な山である。古代の遺跡や雪山におおわれている。この地域は雪が積もっても溶けないという奇妙な現象が確認されている。洞窟の中はとても神秘的な景色が広がっている。</p>
-                    <p><i class="fa-regular fa-location-dot"></i>ドラゴンスパイン</p>
+                    <p>モンドの南東部にある地域であり、広大な山である。古代の遺跡や雪山におおわれている。<br>この地域は雪が積もっても溶けないという奇妙な現象が確認されている。<br>洞窟の中はとても神秘的な景色が広がっている。</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i>ドラゴンスパイン</p></a>
                 </div>
                 <img src="images/snows.png" alt="ドラスパ">
             </section>
             
-            <section class="right">
+            <section class="element right">
                 <img src="images/winarys.png" alt="ワイン">
                 <div>                 
                     <h3>アカツキワイナリー</h3>
-                    <p>モンドの主要なワイナリーで、付近はブドウの濃厚な香りが漂っている。ワイナリーでは蒲公英酒を専門に生産しているて一度飲んだら忘れられない味とも言われている。酒好きの聖地である。</p>
-                    <p><i class="fa-regular fa-location-dot"></i>清泉町</p>
+                    <p>モンドの主要なワイナリーで、付近はブドウの濃厚な香りが漂っている。<br>ワイナリーでは蒲公英酒を専門に生産していて、一度飲んだら忘れられない味とも言われている。<br>酒好きの聖地である。</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i>清泉町</p></a>
                 </div>
                 
             </section>
@@ -72,5 +74,10 @@
     <footer>
         <small><p>GenshinImpact</p></small>
     </footer>
+    <script>
+        $(function() {
+        $('body').fadeIn(1000); //1秒かけてフェードイン！
+    });
+    </script>
 </body>
 </html>

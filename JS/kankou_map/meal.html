@@ -9,21 +9,25 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="css/meal.css">
     <link rel="stylesheet" href="css/menu.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="./js/element.js"></script>
     
 </head>
 
 <body>
     <header>
-        <a href="#"><i class="fa-regular fa-house"></i></a>
+        <a href="index.html"><i class="fa-solid fa-house"></i></a>
         <ul>
-            <li><a href="#"><i class="fa-regular fa-map"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-person-walking"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-utensils"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-photo-film"></i></a></li>
+            <li><a href="map.html"><i class="fa-regular fa-map"></i></a></li>
+            <li><a href="kankou.html"><i class="fa-solid fa-person-walking"></i></a></li>
+            <li><a href="meal.html"><i class="fa-solid fa-utensils"></i></a></li>
+            <li><a href="photo.html"><i class="fa-solid fa-photo-film"></i></a></li>
         </ul>
     </header>
 
@@ -37,11 +41,11 @@
 <hr>
 
         <article>
-            <section class="left">
+            <section class="element left">
                 <div>
                     <h3>モンド風ハッシュドポテト</h3>
                     <p>ジャガイモで作ったスナック。目を閉じて小さなハッシュドポテトを食べる。するとさわやかな柔らかさと甘露のような甘味が広がるだろう</p>
-                    <p><i class="fa-regular fa-location-dot"></i>モンド城・鹿狩り</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i></i>モンド城・鹿狩り</p></a>
                 </div>
                 <img src="images/potato.jpg" alt="ポテト">
             </section>
@@ -51,24 +55,24 @@
                     <h3>北地のスモークチキン</h3>
                     <p>野菜と燻製にした鶏肉の組合わせ。完璧な食感をしており、国の主をもてなすときに出しても恥ずかしくない。
                     </p>
-                    <p><i class="fa-regular fa-location-dot"></i>清泉町</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i></i>清泉町</p></a>
                 </div>
                 
             </section>
-            <section class="left">
+            <section class="element left">
                 <div>
                     <h3>大根入りの野菜スープ</h3>
                     <p>ダイコンをメインにした野菜スープ、爽やかで素朴な田園の香りがする。のんびりした午後の時間を楽しめるようだ。</p>
-                    <p><i class="fa-regular fa-location-dot"></i>ドラゴンスパイン</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i></i>ドラゴンスパイン</p></a>
                 </div>
                 <img src="images/soup.jpg" alt="スープ">
             </section>
-            <section class="right">
+            <section class="element right">
                 <img src="images/puram.jpg" alt="ジュース">
                 <div>                 
                     <h3>ググプラムのジュース</h3>
                     <p>最近流行っているノンアルコールドリンク。搾りたてのググプラムのジュースに氷を入れた、幻の紫色のドリンク。</p>
-                    <p><i class="fa-regular fa-location-dot"></i>モンド城・エンジェルズシェア</p>
+                    <a href="./map.html"><p><i class="fa-solid fa-location-dot"></i>モンド城・エンジェルズシェア</p></a>
                 </div>
                 
             </section>
@@ -78,5 +82,10 @@
     <footer>
         <small><p>GenshinImpact</p></small>
     </footer>
+    <script>
+        $(function() {
+        $('body').fadeIn(1000); //1秒かけてフェードイン！
+    });
+    </script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マップ</title>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/map.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+
+
+    <script src="./js/map.js"></script>
+    
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><i class="fa-solid fa-house"></i></a>
+        <ul>
+            <li><a href="map.html"><i class="fa-regular fa-map"></i></a></li>
+            <li><a href="kankou.html"><i class="fa-solid fa-person-walking"></i></a></li>
+            <li><a href="meal.html"><i class="fa-solid fa-utensils"></i></a></li>
+            <li><a href="photo.html"><i class="fa-solid fa-photo-film"></i></a></li>
+        </ul>
+    </header>
+
+    <main>
+    <div class="wrapper">
+        <div class="midashi">
+            <h2>モンド・観光マップ</h2>
+            <p>モンド城内とモンド全体のマップをご用意いたしました！ぜひご活用くださいませ！
+<hr>
+
+        <article>
+            <div class="btn">
+                <input type="radio" name="imageSwitch" id="image1" checked>
+                <label for="image1">モンド全体</label>
+                <input type="radio" name="imageSwitch" id="image2">
+                <label for="image2">モンド城内</label>
+            </div>
+        
+            <div class="element image_container">
+                <img src="./images/country.png" alt="Image 1" id="img1">
+                <img src="./images/citymap.png" alt="Image 2" id="img2">
+            </div>
+
+        
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const radioButtons = document.querySelectorAll('input[type="radio"]');
+                    const imageContainers = document.querySelectorAll('.image_container img');
+        
+                    radioButtons.forEach(function (radio, index) {
+                        radio.addEventListener('change', function () {
+                            imageContainers.forEach(function (img) {
+                                img.style.display = 'none';
+                            });
+                            imageContainers[index].style.display = 'block';
+                        });
+                    });
+        
+                    // 初期表示時に最初の画像を表示
+                    imageContainers[0].style.display = 'block';
+                });
+            </script>
+           
+        </article>
+    </div>
+    </main>
+    <footer>
+        <small><p>GenshinImpact</p></small>
+    </footer>
+<script src="./js/map.js"></script>
+<script src="./js/header.js"></script>   
+<script>
+    $(function() {
+	$('body').fadeIn(1000); //1秒かけてフェードイン！
+});
+</script> 
+</body>
+
+</html>

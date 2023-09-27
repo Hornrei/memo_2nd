@@ -1,3 +1,7 @@
+/* body{
+    display: none;
+} */
+
 body,h1,h2,h3,h4,p,ul,ol{
     margin: 0;
     padding: 0;}
@@ -20,6 +24,8 @@ header {
     display: flex; /* 要素を横並びに配置 */
     justify-content: space-between; /* 要素を右詰めに配置 */
     align-items: center; /* 要素を垂直方向に中央寄せに配置 */
+    width: 100%;
+
 }
 
 #logo {
@@ -37,13 +43,29 @@ li {
     margin-right: 50px; /* メニュー項目の間隔を設定 */
 }
 
+li:hover{
+   
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+}
+
 a {
     text-decoration: none; /* リンクの下線を削除 */
     color: rgba(255, 255, 255, 0.829); /* リンクのテキストカラーを設定 */
+}
+
+header a:hover{
+    transform: scale(0.9);
+transition-duration: 0.3s;
+color: rgb(241, 243, 127);
 }
 
 i{
     font-size: 40px;
 }
 
+
+small{
+    text-align: center;
+}
 
