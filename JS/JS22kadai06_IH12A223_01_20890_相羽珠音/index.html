@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トップページ</title>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
+    
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <script src="./js/fullpage.js"></script>
+
+    
+</head>
+
+<body>
+    <div class="fullpage">
+    <div class="section">
+    <div class="slide slide01">
+        <header>
+            <a href="index.html"><i class="fa-solid fa-house"></i></a>
+            <ul>
+                <li><a href="map.html"><i class="fa-regular fa-map"></i></a></li>
+                <li><a href="kankou.html"><i class="fa-solid fa-person-walking"></i></a></li>
+                <li><a href="meal.html"><i class="fa-solid fa-utensils"></i></a></li>
+                <li><a href="photo.html"><i class="fa-solid fa-photo-film"></i></a></li>
+            </ul>
+        </header>
+
+    <main>
+            <div class="top">
+
+                <div class="topimg">
+                    <img src="./images/mondostadt.png"alt="" class="eigo">
+                </div><!-- topimg -->
+
+                    <div class="scrolldown4"><span>Scroll</span>
+                    </div><!-- scrolldown -->
+
+                <div class="video-area">    
+                    <video id="loop" poster="./images/Genshin Impact - Trim.mp4" webkit-playsinline playsinline muted autoplay loop><source src="./images/Genshin Impact - Trim.mp4" type="video/mp4"><p>動画を再生できる環境ではありません。</p></video>
+                    
+                </div> <!-- videoarea --> 
+
+            </div><!--top  -->
+    </div><!-- slide slide01 -->
+
+    </div><!-- section -->
+
+    <div class="section">
+    <div class="slide slide02">
+        <article>
+        <div class="wrapper">
+            <div class="midashi">
+                <h2>テイワット大陸　モンド</h2>
+                <p>テイワット大陸の北東部に位置する自由の城。<br> 山々と平原の合間から蒲公英の息吹を引き連れた自由の風が吹き、シードル湖を撫でる。 そして、風神バルバトスの祝福と恵みが、湖の中心——モンドへと届けられる。</p>
+            </div>
+    <hr>
+
+            <div class="mainmenu">
+                <a href="map.html" class="btn btn-malformation btn-malformation--pastel">マップ</a>
+                <a href="kankou.html" class="btn btn-malformation btn-malformation--pastel">観光</a>
+                <a href="meal.html" class="btn btn-malformation btn-malformation--pastel">グルメ</a>
+                <a href="photo.html" class="btn btn-malformation btn-malformation--pastel">ギャラリー</a>
+
+
+            </div>
+
+
+        </div><!-- wrapper -->
+        </article>
+    </main>
+
+
+        <footer>
+            <small><p>GenshinImpact</p></small>
+        </footer>
+    </div><!-- slide slide02 -->
+    </div> <!-- section --> 
+
+    </div><!-- fullpage -->
+</body>
+
+<script>
+    $(function() {
+	$('body').fadeIn(1000); //1秒かけてフェードイン！
+});
+</script>
+</html>

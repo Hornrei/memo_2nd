@@ -1,0 +1,156 @@
+#four{
+    display: none;
+    opacity: 0;
+}
+
+
+img{
+    border-radius: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.image-container {
+    display: none;
+   
+    text-align: center;
+    width: 1250px;
+
+}
+
+input[type="radio"]:checked + .image-container img {
+    display: block;
+}
+
+
+@font-face {
+    font-family: midashi;
+    src: url(../font/KaiseiDecol-Regular.ttf);
+}
+@font-face {
+    font-family: bun;
+    src: url(../font/ZenKurenaido-Regular.ttf);
+}
+
+body{  
+    background-image: url(../images/noon_1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+  background-position: center;
+
+}
+
+h2,h3,p{
+    color: aliceblue;
+}
+
+p{
+    font-family: bun;
+    letter-spacing: 2.2px;
+    font-size: 20px;
+}
+
+
+.wrapper{
+    width: 1250px;
+    margin: 0 auto 0 auto;
+}
+
+.midashi{
+    margin: 0 auto 0 auto;
+    margin-bottom: 50px;
+}
+
+.midashi h2{
+    text-align: center;
+    font-size: 60px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-family: midashi;
+    text-shadow: 0 0 2px rgb(95, 90, 90);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 5px;
+}
+
+h2:before {
+    content: "";
+    position: absolute;
+    background: #2320ef59;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: -1;
+  }
+
+
+.midashi p{
+    text-align: center;
+    font-size: 22px;
+    width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+    /* 初期表示時に画像2（モンド城内）を非表示にする */
+    #img2 {
+        display: none;
+    }
+
+img{
+    width: 1000px;
+    height: auto;
+    margin-top: 80px;
+}
+
+.btn{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn input{
+    display: none;
+}
+
+
+.wrapper{
+    margin-top: 50px;
+}
+
+
+
+
+label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    color: aliceblue;
+    font-size: 26px;
+    background: #4947e4af;
+    padding: 15px 25px;
+
+    box-shadow: 0 5px 0 rgb(49, 49, 88);
+    border-radius: 20px;
+    display: inline-block;
+    transition: .3s;
+    font-family: bun;
+    margin-right: 100px;
+    margin-left: 100px;
+    
+  }
+
+label:hover{
+    transform: translateY(5px);
+    box-shadow:none
+}
+
+
+
+
