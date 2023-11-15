@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="design.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=M+PLUS+1p:wght@300&family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>BMI計算</title>
+    <script src="./bmi.js"></script>
+    
+</head>
+<body>
+    <div class="main">
+    <h1>BMI calculation</h1>
+    <form>
+        <label for="height">身長（m）: </label>
+        <input type="number" step="0.01" id="height" placeholder="身長を入力" required><br><br>
+        <label for="weight">体重（kg）: </label>
+        <input type="number" id="weight" placeholder="体重を入力" required><br><br>
+        
+        
+        
+        <input type="button" value="BMIを計算" onclick="calculateBMI(),toggleImage()">
+        
+    </form>
+    
+    <p id="result"></p>
+    <img id="image" src="./image/bmi.png" style="display: none;">
+    <script>
+        function toggleImage() {
+            var image = document.getElementById("image");
+            // if (image.style.display === "none") {
+                image.style.display = "block"; 
+            // } else {
+            //     image.style.display = "none";
+            // }
+        }
+    </script>
+    </div>
+
+    <img src="./image/kujira.png" id="kuji" class="sakana"  alt="Image 1">
+    <script src="./img.js"></script>
+</body>
+</html>
+
+    
+</body>
+</html>

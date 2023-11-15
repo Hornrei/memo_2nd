@@ -1,0 +1,66 @@
+@font-face {
+    font-family:midashi ;
+    src: url(./font/MPLUS1p-Regular.ttf);
+}
+
+body{
+    background-image: url(./image/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+h1{
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+}
+
+
+form{
+    text-align: center;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+
+input[type="button"]{
+    width: 120px;
+    height: 40px;
+
+}
+
+input[type="button"]:hover{
+    cursor: pointer;
+    border-radius:20px ;
+   
+}
+
+input[type="number"]{
+    width:200px;
+    height: 30px;
+}
+
+p{
+    color: aliceblue;
+    text-align: center;
+    font-size: 30px;
+}
+
+img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+.sakana{
+    width: 400px;
+    position: absolute;
+    top: 310px;
+  left: 20px;
+}
+
+.main{
+    margin-top: 100pxd;
+}
