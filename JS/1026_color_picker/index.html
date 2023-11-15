@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>和色の色あてゲーム</title>
+</head>
+<body>  
+        <div id="game-container">
+            <h1 id="main">この色は何色でしょう？名前を入力してください</h1>
+            <div id="color-block">
+                <div id="color-text">
+                    <span id="color-name"></span>
+                    <span id="color-code"></span>
+                </div>
+            </div>
+            <input type="text" id="user-answer" placeholder="色の名前を入力してください">
+            <button id="submit-button">回答する</button>
+            <p id="result"></p>
+            <p id="hint"></p>
+        </div>
+        <script src="./js/game.js"></script>
+    
+</body>
+</html>

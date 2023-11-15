@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .color-table {
+    width:fit-content;
+    margin: auto;
+  }
+
+  .color-row {
+    display: flex;
+  }
+
+  .color-box {
+    width: 300px;
+    height: 60px;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .color-name {
+    margin-top: 5px;
+    width: 300px;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  #countdown{
+    text-align: center;
+    font-size: 25px;
+  }
+
+  button{
+
+  }
+
+</style>
+<link rel="stylesheet" type="text/css" href="./css/start.css">
+
+</head>
+<body>
+<div class="first">
+    <h1>和色の色あてゲーム</h1>
+    <button id="start">Start！！</button>
+    <input id="colorPicker" type="color">
+</div>
+
+
+
+<div class="ichiran"style="display: none;">   
+<h1>15秒で覚えよう！</h1>   
+
+<div class="color-table">
+  <div class="color-row">
+    <div class="color-box" style="background-color: #f2a0a1;">
+      <div class="color-name">紅梅色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #d3381c;">
+      <div class="color-name">緋色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #efcd9a;">
+      <div class="color-name">香色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #ffec47;">
+      <div class="color-name">菜の花色</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <div class="color-box" style="background-color: #f8b500;">
+      <div class="color-name">山吹色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #68be8d;">
+      <div class="color-name">若竹色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #7ebea5;">
+      <div class="color-name">青磁色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #d6e9ca;">
+      <div class="color-name">白緑</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <div class="color-box" style="background-color: #c3d825;">
+      <div class="color-name">若草色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #a59564;">
+      <div class="color-name">利休茶</div>
+    </div>
+
+    <div class="color-box" style="background-color: #460e44;color: white;">
+      <div class="color-name">紫紺</div>
+    </div>
+
+    <div class="color-box" style="background-color: #674196;color: white;">
+      <div class="color-name">菖蒲色</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <div class="color-box" style="background-color: #5654a2;color: white;">
+      <div class="color-name">桔梗色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #bbc8e6;">
+      <div class="color-name">淡藤色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #007bbb;color: white;">
+      <div class="color-name">紺碧</div>
+    </div>
+
+    <div class="color-box" style="background-color: #a2d7dd;">
+      <div class="color-name">瓶覗</div>
+    </div>
+  </div>
+
+  <div class="color-row">
+    <div class="color-box" style="background-color: #eaf4fc;">
+      <div class="color-name">月白</div>
+    </div>
+
+    <div class="color-box" style="background-color: #38b48b;color: white;">
+      <div class="color-name">翡翠色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #cc7eb1;">
+      <div class="color-name">菖蒲色</div>
+    </div>
+
+    <div class="color-box" style="background-color: #a58f86;">
+      <div class="color-name">胡桃染</div>
+    </div>
+  </div>
+
+
+</div>
+
+<div id="countdown">15.00</div>
+
+</div>
+
+<script src="./js/start.js"></script>
+</body>
+</html>

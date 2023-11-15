@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>TOPページ</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Home</h1>
+    <ul>
+        {% if login %}
+        <li><a href="{{ url_for('logout') }}">logout</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login') }}">login</a></li>
+        {% endif %}
+        <li><a href="{{ url_for('create_user') }}">create_user</a></li>
+    </ul>
+{% endblock %}
