@@ -1,16 +1,17 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 import mysql.connector
 import hashlib
 
 app = Flask(__name__)
 app.secret_key = "ebtih12a3b4c5d6e7f8g9h0i"
+app.json.ensure_ascii = False
 
 
 def database_connection():
     return mysql.connector.connect(
         user='root',
-        password='',
-        #password='root',
+        # password='',
+        password='root',
         host='localhost',
         # port='3306',
         database='py',
@@ -117,7 +118,26 @@ def create_user_post():
         return redirect("/create_user")
 
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
+@app.route("/get_json")
+def get_json():
+    return jsonify({
+        "news": [
+            {
+                "title": "PYの評価課題が発表されました",
+                "body": "あああああああああああああああああ"
+            },
+            {
+                "title": "PYの評価課題が発表されました2",
+                "body": "あああああああああああああああああ"
+            },
+        ],
+    })
+
+
 if __name__ == "__main__":
-    app.run(debug=True, host="localhost", port=8080)
-
-
+    app.run(debug=True, host="localhost", port=5000)

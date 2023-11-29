@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+
+  #tabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .tab {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+
+  .tab.active {
+    background-color: #f0f0f0;
+  }
+
+  #weather {
+    margin-top: 20px;
+  }
+
+  .cloudy {
+    color: #90a4ae; /* blue-grey */
+  }
+
+  .sunny {
+    color: #fdd835; /* yellow */
+  }
+
+  .rainy {
+    color: #1565c0; /* blue */
+  }

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>観光地の天気情報</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  
+</head>
+<body>
+    <div class="wrapper">
+     
+    <div class="menu">   
+      <h1>観光地の天気情報</h1>
+      <!-- タブ -->
+      <div id="tabs">
+          <div class="tab" onclick="filterWeather('cloudy')">曇り</div>
+          <div class="tab" onclick="filterWeather('sunny')">晴れ</div>
+          <div class="tab" onclick="filterWeather('rainy')">雨</div>
+          <div class="tab" onclick="filterWeather('snowy')">雪</div>
+      </div>
+    </div> <!-- end menu -->
+
+    <!-- 天気情報 -->
+    <div id="weather"></div>
+
+
+    </div><!-- end wrapper -->
+
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
+
