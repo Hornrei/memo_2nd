@@ -11,15 +11,15 @@
 </head>
 <body>
     <div class="wrapper">
-     
+      
     <div class="menu">   
       <h1>観光地の天気情報</h1>
       <!-- タブ -->
       <div id="tabs">
-          <div class="tab" onclick="filterWeather('cloudy')">曇り</div>
-          <div class="tab" onclick="filterWeather('sunny')">晴れ</div>
-          <div class="tab" onclick="filterWeather('rainy')">雨</div>
-          <div class="tab" onclick="filterWeather('snowy')">雪</div>
+          <div class="tab" id="kumo" onclick="filterWeather('cloudy')">曇り</div>
+          <div class="tab" id="hare" onclick="filterWeather('sunny')">晴れ</div>
+          <div class="tab" id="ame" onclick="filterWeather('rainy')">雨</div>
+          <div class="tab" id="yuki" onclick="filterWeather('snowy')">雪</div>
       </div>
     </div> <!-- end menu -->
 
@@ -30,6 +30,31 @@
     </div><!-- end wrapper -->
 
 
+  <script>
+    function filterWeather(weatherType) {
+      // 画像のパスを取得
+      var imagePath = getImagePath(weatherType);
+
+      // タブの背景画像を変更
+      document.getElementById(weatherType).style.backgroundImage = 'url(' + imagePath + ')';
+    }
+
+    function getImagePath(weatherType) {
+      // 各天気タイプに対応する画像のパスを返す関数
+      switch (weatherType) {
+        case 'cloudy':
+          return './image/cloud.jpg';
+        case 'sunny':
+          return './image/sky1.jpg';
+        case 'rainy':
+          return './image/rain1.jpg';
+        case 'snowy':
+          return './image/snow.jpg';
+        default:
+          return '';
+      }
+    }
+  </script>
   <script src="./js/script.js"></script>
 </body>
 </html>

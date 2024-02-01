@@ -1,11 +1,30 @@
+@font-face {
+  font-family: "p";
+  src:url("/font/ZenKurenaido-Regular.ttf")
+}
+
 body {
     font-family: Arial, sans-serif;
+    background-image: url(../image/niji.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   #tabs {
     display: flex;
     margin-bottom: 20px;
   }
+
+  h1{
+    color: #1475e3;
+    /* メイリオ */
+    font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  }
+
+  p{
+    font-family: p;
+  }
+  
 
   .tab {
     padding: 10px;
@@ -18,18 +37,52 @@ body {
     background-color: #f0f0f0;
   }
 
+  .tab.selected {
+    border-bottom: 2px solid #000; /* 選択されたタブの下部に線を追加 */
+  }
+
   #weather {
     margin-top: 20px;
   }
 
   .cloudy {
-    color: #90a4ae; /* blue-grey */
+    color: #294e7e; /* blue-grey */
   }
 
   .sunny {
-    color: #fdd835; /* yellow */
+    color: #df5ad4; /* yellow */
   }
 
   .rainy {
     color: #1565c0; /* blue */
   }
+  .snowy{
+    color:#1e93ce
+  }
+
+  
+.wrapper{
+  width: 800px;
+  margin: auto auto;
+  padding:20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.471);
+}
+
+#tabs{
+  width: 100%;
+  justify-content: space-between;
+  padding:auto auto;
+  margin: 30px auto 30px auto;
+}
+
+.tab{
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px  30px 10px 30px;
+  cursor: pointer;
+  color: #1475e3;
+  background-color: white;
+}

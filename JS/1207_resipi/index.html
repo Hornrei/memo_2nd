@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レシピサイト</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>レシピサイト</h1>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2 class="title"></h2>
+                <ul class="list">
+                    <!-- 
+                        liをjs側で作る
+                        (axiosで取得したデータをもとにliを作る)
+                        axios:HTTPSリクエストをjsで行うためのライブラリ
+                     -->
+                </ul>
+            </section>
+
+        </main>
+
+        <footer>
+            <small>&copy; 2023 レシピサイト</small>
+        </footer>
+
+
+    </div><!-- end wrapper -->
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        //axiosのアクセス
+        //axiosの.get(url)HTTP通信(API通信)でサーバーからデータを取得
+        
+        //料理のjsonデータを取得
+
+
+        //json
+        //JSの連想配列(key,value)
+        /* 
+            {
+                "name":"おすすめのレシピ",
+                "child":[連想配列,連想配列,連想配列 ]
+            }
+        
+        */
+       axios
+       .get("https://gist.githubusercontent.com/natsumi-822/aa0bc025807d80cce032eb12ba596df9/raw/b3eff59d744c54ba518192bcf82bf356ebdfaf7f/section.json")
+       .then(res => {
+            console.log(res.data);
+            document.querySelector(".title").innerHTML = res.data.name;
+
+            //forEach:中身を取得しながら配列をくりかえす
+            //res.data.child配列
+            res.data.child.forEach(item => {
+                //createElement 要素を作り出す
+                const li = document.createElement("li");
+                const img = document.createElement("img");
+                const h2 = document.createElement("h2");
+                const p = document.createElement("p");
+
+                //imgに画像のURLを設定
+                img.src = item.img;
+                img.classList.add("thumbnail");
+                h2.innerHTML = item.name;
+
+                //要素A.appendChild(要素B)
+                //appendChild:要素Aの子要素として要素Bを追加する
+                li.appendChild(img);
+                li.appendChild(h2);
+                li.appendChild(p);
+                document.querySelector(".list").appendChild(li);
+            })
+       })
+       .catch(err => {
+           alert("データの取得に失敗しました",err);
+       });
+    </script>
+    
+</body>
+</html>

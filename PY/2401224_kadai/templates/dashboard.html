@@ -1,0 +1,45 @@
+<!-- ここはloginした後に表示させる画面・クリック回数カウントし、そのデータを保存するものにしたい -->
+
+
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>ダッシュボード</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1>ダッシュボード画面</h1>
+    <ul id="list">
+    </ul>
+    <button id="request">
+        取得する
+    </button>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+
+        const list = document.getElementById("list")
+        // buttonを押したら
+        document
+            .getElementById("request")
+            .addEventListener("click", function () {
+                // /get_jsonからデータを読み込む
+                axios
+                    .get("http://localhost:5000/get_json")
+                    .then(function (response) {
+                        for (const news of response.data.news) {
+                            // liタグを作成し
+                            const li = document.createElement("li")
+                            li.textContent = news.title
+
+                            li.classList.add("p-8")
+                            // ulタグの中に追加する
+                            list.appendChild(li)
+                        }
+
+                        
+                    })
+            })
+
+    </script>
+{% endblock %}

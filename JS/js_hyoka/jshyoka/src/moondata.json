@@ -1,0 +1,178 @@
+{
+    "2024-02-01": {
+      "moon_set_time": "09:48",
+      "moon_rise_time": "23:06",
+      "moon_transit_time": "03:59",
+      "image_path": "/public/images/02-01.png"
+    },
+    "2024-02-02": {
+      "moon_set_time": "10:12",
+      "moon_rise_time": "none",
+      "moon_transit_time": "04:40",
+      "image_path": "/public/images/02-02.png"
+    },
+    "2024-02-03": {
+      "moon_set_time": "10:40",
+      "moon_rise_time": "00:06",
+      "moon_transit_time": "05:23",
+      "image_path": "/public/images/02-03.png"
+    },
+    "2024-02-04": {
+      "moon_set_time": "11:13",
+      "moon_rise_time": "01:09",
+      "moon_transit_time": "06:11",
+      "image_path": "/public/images/02-04.png"
+    },
+    "2024-02-05": {
+      "moon_set_time": "11:52",
+      "moon_rise_time": "02:14",
+      "moon_transit_time": "07:03",
+      "image_path": "/public/images/02-05.png"
+    },
+    "2024-02-06": {
+      "moon_set_time": "12:37",
+      "moon_rise_time": "03:20",
+      "moon_transit_time": "07:58",
+      "image_path": "/public/images/02-06.png"
+    },
+    "2024-02-07": {
+      "moon_set_time": "13:29",
+      "moon_rise_time": "04:26",
+      "moon_transit_time": "08:55",
+      "image_path": "/public/images/02-07.png"
+    },
+    "2024-02-08": {
+      "moon_set_time": "14:28",
+      "moon_rise_time": "05:31",
+      "moon_transit_time": "09:53",
+      "image_path": "/public/images/02-08.png"
+    },
+    "2024-02-09": {
+      "moon_set_time": "15:33",
+      "moon_rise_time": "06:33",
+      "moon_transit_time": "10:51",
+      "image_path": "/public/images/02-09.png"
+    },
+    "2024-02-10": {
+      "moon_set_time": "16:43",
+      "moon_rise_time": "07:32",
+      "moon_transit_time": "11:49",
+      "image_path": "/public/images/02-10.png"
+    },
+      "2024-02-11": {
+          "moon_set_time": "17:57",
+          "moon_rise_time": "08:27",
+          "moon_transit_time": "12:45",
+          "image_path": "/public/images/02-11.png"
+      },
+      "2024-02-12": {
+          "moon_set_time": "19:14",
+          "moon_rise_time": "09:18",
+          "moon_transit_time": "13:40",
+          "image_path": "/public/images/02-12.png"
+      },
+      "2024-02-13": {
+          "moon_set_time": "20:34",
+          "moon_rise_time": "10:05",
+          "moon_transit_time": "14:32",
+          "image_path": "/public/images/02-13.png"
+      },
+      "2024-02-14": {
+          "moon_set_time": "21:54",
+          "moon_rise_time": "10:48",
+          "moon_transit_time": "15:21",
+          "image_path": "/public/images/02-14.png"
+      },
+      "2024-02-15": {
+          "moon_set_time": "23:14",
+          "moon_rise_time": "11:28",
+          "moon_transit_time": "16:06",
+          "image_path": "/public/images/02-15.png"
+      },
+      "2024-02-16": {
+          "moon_set_time": "none",
+          "moon_rise_time": "11:59",
+          "moon_transit_time": "16:47",
+          "image_path": "/public/images/02-16.png"
+      },
+      "2024-02-17": {
+          "moon_set_time": "00:33",
+          "moon_rise_time": "12:29",
+          "moon_transit_time": "17:24",
+          "image_path": "/public/images/02-17.png"
+      },
+      "2024-02-18": {
+          "moon_set_time": "01:52",
+          "moon_rise_time": "12:59",
+          "moon_transit_time": "17:58",
+          "image_path": "/public/images/02-18.png"
+      },
+      "2024-02-19": {
+          "moon_set_time": "03:11",
+          "moon_rise_time": "13:31",
+          "moon_transit_time": "18:30",
+          "image_path": "/public/images/02-19.png"
+      },
+      "2024-02-20": {
+          "moon_set_time": "04:30",
+          "moon_rise_time": "14:06",
+          "moon_transit_time": "19:01",
+          "image_path": "/public/images/02-20.png"
+      },
+      "2024-02-21": {
+          "moon_set_time": "05:49",
+          "moon_rise_time": "14:45",
+          "moon_transit_time": "19:32",
+          "image_path": "/public/images/02-21.png"
+      },
+      "2024-02-22": {
+          "moon_set_time": "07:08",
+          "moon_rise_time": "15:29",
+          "moon_transit_time": "20:05",
+          "image_path": "/public/images/02-22.png"
+      },
+      "2024-02-23": {
+          "moon_set_time": "08:27",
+          "moon_rise_time": "16:19",
+          "moon_transit_time": "20:41",
+          "image_path": "/public/images/02-23.png"
+      },
+      "2024-02-24": {
+          "moon_set_time": "09:45",
+          "moon_rise_time": "17:15",
+          "moon_transit_time": "21:21",
+          "image_path": "/public/images/02-24.png"
+      },
+      "2024-02-25": {
+          "moon_set_time": "11:03",
+          "moon_rise_time": "18:17",
+          "moon_transit_time": "22:07",
+          "image_path": "/public/images/02-25.png"
+      },
+      "2024-02-26": {
+          "moon_set_time": "12:20",
+          "moon_rise_time": "19:24",
+          "moon_transit_time": "23:00",
+          "image_path": "/public/images/02-26.png"
+      },
+      "2024-02-27": {
+          "moon_set_time": "13:35",
+          "moon_rise_time": "20:35",
+          "moon_transit_time": "none",
+          "image_path": "/public/images/02-27.png"
+      },
+      "2024-02-28": {
+          "moon_set_time": "14:47",
+          "moon_rise_time": "21:48",
+          "moon_transit_time": "00:00",
+          "image_path": "/public/images/02-28.png"
+      },
+      "2024-02-29": {
+          "moon_set_time": "15:55",
+          "moon_rise_time": "22:59",
+          "moon_transit_time": "00:00",
+          "image_path": "/public/images/02-29.png"
+      }
+  
+  }
+  

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>TOPページ</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="wrap">
+    <h1 class="homeh1">Home</h1>
+    <ul class="homeul">
+        {% if signin %}
+        <li class="homelist"><a href="{{ url_for('signout') }}">signout</a></li>
+        <li class="homelist"><a href="{{ url_for('dashboard') }}">ダッシュボード</a></li>
+        {% else %}
+        <li class="homelist"><a href="{{ url_for('signin') }}">signin</a></li>
+        {% endif %}
+        <li class="homelist"><a href="{{ url_for('signup') }}">signup</a></li>
+    </ul>
+    
+    </div>  
+{% endblock %}

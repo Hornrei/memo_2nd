@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>ダッシュボード</title>
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="dashh1">ダッシュボード画面</h1>
+    
+    <button id="request" class="dashget">
+        取得する
+    </button>
+    <ul id="list" class="dashul">
+    </ul>
+
+    <br>
+
+   
+
+    <div class="profile">
+        <h2 class="dashh2">プロフィール編集</h2>
+
+        <div class="data">
+        <p>username: {{ data.username }}</p>
+        <p>email: {{ data.email }}</p>
+        </div>
+
+        <br>
+        <form class="dashform" action="{{ url_for('change_username_post') }}" method="POST">
+            <div>
+                <label for="name" class="text-xs">新しいユーザーネーム</label>
+                <input type="text" name="username" id="username" class="block px-1 py-1 rounded shadow">
+            </div>
+            <div>
+                <button style="margin-top: 20px;" type="submit" class="px-4 py-2 text-sm text-white bg-indigo-500 rounded">更新する</button>
+            </div>
+        </form>
+        
+
+        <!-- パスワード変更 -->
+        <form class="dashform"action="{{ url_for('change_password_post') }}" method="POST">
+            <div>
+                <label for="old_password" class="text-xs">古いパスワード</label>
+                <input type="password" name="old_password" id="old_password" class="block px-1 py-1 rounded shadow">
+
+                <label for="new_password" class="text-xs">新しいパスワード</label>
+                <input type="password" name="new_password" id="new_password" class="block px-1 py-1 rounded shadow">
+            </div>
+            <div>
+                <button style="margin-top: 20px;" type="submit" class="px-4 py-2 text-sm text-white bg-indigo-500 rounded ">更新する</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <!-- アカウント削除ボタン -->
+        <form class="delete" action="{{ url_for('delete_account') }}" method="POST">
+            <div>
+                <button type="submit" class="px-4 py-2 text-sm text-white bg-indigo-500 rounded">アカウント削除</button>
+            </div>
+        </form>
+    </div>
+    
+    <a href="/">
+    <button class="reverse">
+        戻る
+    </button>
+    </a>
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        const list = document.getElementById("list");
+
+        document.getElementById("request").addEventListener("click", function () {
+            axios.get("http://localhost:5000/get_json")
+                .then(function (response) {
+                    // 取得したデータをコンソールに表示
+                    console.log(response.data.whale_info);
+
+                    // リストをクリア
+                    list.innerHTML = '';
+
+                    // データから新しい要素を作成し、リストに追加
+                    for (const key in response.data.whale_info) {
+                        if (response.data.whale_info.hasOwnProperty(key)) {
+                            let li = document.createElement("li");
+                            li.textContent = `${key}: ${response.data.whale_info[key]}`; // ''   ``
+                            li.classList.add("p-8");
+                            list.appendChild(li);
+                        }
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error fetching data:", error);
+                });
+        });
+
+    </script>
+{% endblock %}

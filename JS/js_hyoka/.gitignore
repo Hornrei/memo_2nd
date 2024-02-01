@@ -1,0 +1,5 @@
+# node_modulesを外す
+# これをしないと、node_modules以下のファイルが全てコピーされてしまう
+node_modules
+
+images

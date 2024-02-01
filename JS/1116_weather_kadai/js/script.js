@@ -43,8 +43,6 @@
         weatherInfo.classList.add('sunny');
       } else if (description.includes('雨')) {
         weatherInfo.classList.add('rainy');
-      } else if (description.includes('小')) {
-        weatherInfo.classList.add('rainy');
       } else if (description.includes('雷')) {
         weatherInfo.classList.add('rainy');
       } else if (description.includes('雪')) {
@@ -64,9 +62,23 @@
               const description = data.weather[0].description;
               if ((type === 'cloudy' && (description.includes('雲')||description.includes('曇'))) ||
                   (type === 'sunny' && description.includes('晴')) ||
-                  (type === 'rainy' && (description.includes('雨')||description.includes('小'))) ||  // ここにセミコロンを追加
+                  (type === 'rainy' && (description.includes('雨'))) ||  // ここにセミコロンを追加
                   (type === 'snowy' && description.includes('雪'))) {
-                displayWeather(location.name, data.main.temp, description);　ｈ
+                displayWeather(location.name, data.main.temp, description); 
+              }
+
+              if (type === 'cloudy'){
+                // 対応する背景画像を変更
+                document.body.style.backgroundImage = "url('C:/develop/hal/2nd/memo1/JS/1116_weather_kadai/image/cloud.jpg')";
+              }else if (type === 'sunny'){
+                // 対応する背景画像を変更
+                document.body.style.backgroundImage = "url('C:/develop/hal/2nd/memo1/JS/1116_weather_kadai/image/sky1.jpg')";
+              }else if (type === 'rainy'){
+                // 対応する背景画像を変更
+                document.body.style.backgroundImage = "url('C:/develop/hal/2nd/memo1/JS/1116_weather_kadai/image/rain1.jpg')";
+              }else if (type === 'snowy'){
+                // 対応する背景画像を変更
+                document.body.style.backgroundImage = "url('C:/develop/hal/2nd/memo1/JS/1116_weather_kadai/image/snow.jpg')";
               }
 
             }

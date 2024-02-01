@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レシピページ</title>
+    <style>
+        /* 共通のスタイル */
+        @font-face {
+            font-family: "yomogi";
+            src: url("./Yomogi-Regular.ttf");
+        }
+        body{
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url(./haikei.png);
+            background-repeat: round;
+        }
+        .recipe-title {
+            font-size: 70px;
+            /* margin-bottom: 20px; */
+            font-family: "yomogi";
+            text-align: center;
+        }
+
+        .recipe-item {
+            list-style-type: none;
+            margin-bottom: 50px;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(255, 165, 0);
+
+        }
+
+        .recipe-ingredients-list,
+        .recipe-instructions-list {
+            
+            margin-bottom: 10px;
+        }
+
+        .recipe-ingredient-item,
+        .recipe-instruction-item {
+            margin-bottom: 10px;
+        }
+
+        /* イメージ関連のスタイル */
+        .recipe-thumbnail {
+            width: 490px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+       /* レシピリスト全体のスタイル */
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* アイテムを均等に配置 */
+        }
+
+        .recipe-item {
+            flex: 0 0 calc(45% - 50px);
+            box-sizing: border-box;
+            
+            margin-right: 40px; /* アイテム間の間隔を40pxに調整 */
+        }
+
+        .recipe-ingredients-list{
+            width: 160px;
+        }
+
+        .recipe-instructions-list{
+            width: 200px;
+        }
+
+        /* 材料と作り方の横並びスタイル */
+        .recipe-ingredients-list,
+        .recipe-instructions-list {
+            flex: 1;
+            margin-right: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .recipe-details {
+            margin-left: 20px;
+        }
+
+        .recipe-ingredients-list h3,
+    .recipe-instructions-list h3 {
+        border-bottom: 2px solid orange; /* オレンジ色の下線 */
+        padding-bottom: 5px; /* 下線との距離調整 */
+    }
+
+    </style>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="recipe-title"></div>
+    <ul class="recipe-list"></ul>
+
+    <script>
+        axios
+            .get("https://raw.githubusercontent.com/tetn39/tama/main/data.json")
+            .then(res => {
+                console.log(res.data);
+                document.querySelector(".recipe-title").innerHTML = res.data.name;
+
+                res.data.child.forEach(item => {
+                    const li = document.createElement("li");
+                    const img = document.createElement("img");
+                    const h2 = document.createElement("h2");
+                    const p = document.createElement("p");
+
+                    img.src = item.img;
+                    img.classList.add("recipe-thumbnail");
+                    
+
+                    // 材料のリストを作成
+                    const ingredientsList = document.createElement("ul");
+                    const ingredientsTitle = document.createElement("h3");
+                    ingredientsTitle.innerHTML = "材料";
+                    ingredientsList.appendChild(ingredientsTitle);
+                    ingredientsList.classList.add("recipe-ingredients-list");
+
+                    item.ingredients.forEach(ingredient => {
+                        const ingredientItem = document.createElement("li");
+                        ingredientItem.innerHTML = ingredient;
+                        ingredientItem.classList.add("recipe-ingredient-item");
+                        ingredientsList.appendChild(ingredientItem);
+                    });
+
+                    // 作り方のリストを作成
+                    const instructionsList = document.createElement("ol");
+                    const instructionsTitle = document.createElement("h3");
+                    instructionsTitle.innerHTML = "作り方";
+                    instructionsList.appendChild(instructionsTitle);
+                    instructionsList.classList.add("recipe-instructions-list");
+
+                    item.instructions.forEach(instruction => {
+                        const instructionItem = document.createElement("li");
+                        instructionItem.innerHTML = instruction;
+                        instructionItem.classList.add("recipe-instruction-item");
+                        instructionsList.appendChild(instructionItem);
+                    });
+
+                    li.appendChild(img);
+                    li.appendChild(h2);
+                    li.appendChild(p);
+                    li.appendChild(ingredientsList);
+                    li.appendChild(instructionsList);
+
+                    li.classList.add("recipe-item");
+                    document.querySelector(".recipe-list").appendChild(li);
+                });
+            })
+            .catch(err => {
+                alert("データの取得に失敗しました", err);
+            });
+    </script>
+</body>
+</html>
