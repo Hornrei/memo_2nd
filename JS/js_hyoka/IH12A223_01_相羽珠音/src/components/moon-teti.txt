@@ -1,0 +1,530 @@
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import React, { useState, useEffect } from 'react';
+import moonData from '../moondata.json';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper';
+
+
+
+
+
+const MoonSlider = () => {
+  const [selectedDateIndex, setSelectedDateIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+
+  useEffect(() => {
+    // Swiperの初期化
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // Swiperインスタンスをstateに保存
+    setSwiperInstance(swiper);
+
+    // 初回表示
+    if (moonData && moonData[selectedDateIndex]) {
+      swiper.slideTo(selectedDateIndex, 0);
+    }
+
+    // cleanup
+    return () => {
+      if (swiper) {
+        swiper.destroy();
+      }
+    };
+  }, [selectedDateIndex]);
+
+  const handleDateChange = (event) => {
+    const newIndex = parseInt(event.target.value, 10);
+    setSelectedDateIndex(newIndex);
+
+    // Swiperでの画像切り替え
+    if (swiperInstance) {
+      swiperInstance.slideTo(newIndex);
+    }
+  };
+
+  return (
+    <div>
+    <div>
+      {/* 日付の選択 */}
+      <select onChange={handleDateChange} value={selectedDateIndex}>
+        {Object.keys(moonData).map((date, index) => (
+          <option key={index} value={index}>
+            {date}
+          </option>
+        ))}
+      </select>
+
+      {/* Swiperを使って画像を表示*/}
+          
+      <div className="swiper-container">
+        <div className="swiper-wrapper">
+          {Object.values(moonData).map((moon, index) => (
+            <div key={index} className="swiper-slide">
+              <img src={moon.image_path} alt={`Moon on ${Object.keys(moonData)[index]}`} />
+            </div>
+          ))}
+        </div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
+      </div>
+    </div>
+
+<section id="testimonials">
+<div className="container">
+  <Swiper
+    slidesPerView={1}
+    spaceBetween={30}
+    navigation={true}
+    mousewheel={true}
+    keyboard={true}
+    pagination={{
+      clickable: true,
+    }}
+    autoplay={{
+      delay: 2500,
+      disableOnInteraction: false,
+    }}
+    breakpoints={{
+      601: { slidesPerView: 2 },
+      1025: { slidesPerView: 3 },
+    }}
+    loop={true}
+    modules={[Navigation, Autoplay, Pagination, Mousewheel, Keyboard]}
+    className="moon"
+  >
+    {testimonials.map((testimonial) => (
+      <SwiperSlide key={testimonial.id}>
+        <Testimonial testimonial={testimonial} />
+      </SwiperSlide>
+    ))}
+    {moonData.map((moon, index) => (
+              <div key={index} className="swiper-slide">
+                <img src={moon.image} alt={moon.name} />
+                <p>{moon.name}</p>
+              </div>
+            ))}
+
+  </Swiper>
+</div>
+</section>
+</div>
+  );
+};
+
+export default MoonSlider;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import React, { useState, useEffect } from 'react';
+import moonData from '../moondata.json';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+
+// Swiperのモジュールを有効化
+Swiper.use([Navigation, Autoplay, Pagination, Mousewheel, Keyboard]);
+
+const MoonSlider = () => {
+  const [selectedDateIndex, setSelectedDateIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+
+  useEffect(() => {
+    // Swiperの初期化
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // Swiperインスタンスをstateに保存
+    setSwiperInstance(swiper);
+
+    // 初回表示
+    if (moonData && moonData[selectedDateIndex]) {
+      swiper.slideTo(selectedDateIndex, 0);
+    }
+
+    // cleanup
+    return () => {
+      if (swiper) {
+        swiper.destroy();
+      }
+    };
+  }, [selectedDateIndex]);
+
+  const handleDateChange = (event) => {
+    const newIndex = parseInt(event.target.value, 10);
+    setSelectedDateIndex(newIndex);
+
+    // Swiperでの画像切り替え
+    if (swiperInstance) {
+      swiperInstance.slideTo(newIndex);
+    }
+  };
+
+  return (
+    <div>
+      <div>
+        {/* 日付の選択 */}
+        <select onChange={handleDateChange} value={selectedDateIndex}>
+          {Object.keys(moonData).map((date, index) => (
+            <option key={index} value={index}>
+              {date}
+            </option>
+          ))}
+        </select>
+
+        {/* Swiperを使って画像を表示*/}
+        <div className="swiper-container">
+          <div className="swiper-wrapper">
+            {Object.values(moonData).map((moon, index) => (
+              <div key={index} className="swiper-slide">
+                <img src={moon.image_path} alt={`Moon on ${Object.keys(moonData)[index]}`} />
+              </div>
+            ))}
+          </div>
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
+        </div>
+      </div>
+
+      <section id="testimonials">
+        <div className="container">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            navigation={true}
+            mousewheel={true}
+            keyboard={true}
+            pagination={{
+              clickable: true,
+            }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              601: { slidesPerView: 2 },
+              1025: { slidesPerView: 3 },
+            }}
+            loop={true}
+            className="moon"
+          >
+            {Object.values(moonData).map((moon, index) => (
+              <SwiperSlide key={index} className="swiper-slide">
+                <img src={moon.image} alt={moon.name} />
+                <p>{moon.name}</p>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default MoonSlider;
+
+
+
+
+
+
+
+
+
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import React, { useState, useEffect } from 'react';
+import moonData from '../moondata.json';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+
+
+
+
+
+const MoonSlider = () => {
+  const [selectedDateIndex, setSelectedDateIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+
+  useEffect(() => {
+    // Swiperの初期化
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // Swiperインスタンスをstateに保存
+    setSwiperInstance(swiper);
+
+    // 初回表示
+    if (moonData && moonData[selectedDateIndex]) {
+      swiper.slideTo(selectedDateIndex, 0);
+    }
+
+    // cleanup
+    return () => {
+      if (swiper) {
+        swiper.destroy();
+      }
+    };
+  }, [selectedDateIndex]);
+
+  const handleDateChange = (event) => {
+    const newIndex = parseInt(event.target.value, 10);
+    setSelectedDateIndex(newIndex);
+
+    // Swiperでの画像切り替え
+    if (swiperInstance) {
+      swiperInstance.slideTo(newIndex);
+    }
+  };
+
+  return (
+    <div>
+    <div>
+      {/* 日付の選択 */}
+      <select onChange={handleDateChange} value={selectedDateIndex}>
+        {Object.keys(moonData).map((date, index) => (
+          <option key={index} value={index}>
+            {date}
+          </option>
+        ))}
+      </select>
+
+      {/* Swiperを使って画像を表示*/}
+          
+      <div className="swiper-container">
+        <div className="swiper-wrapper">
+          {Object.values(moonData).map((moon, index) => (
+            <div key={index} className="swiper-slide">
+              <img src={moon.image_path} alt={`Moon on ${Object.keys(moonData)[index]}`} />
+            </div>
+          ))}
+        </div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
+      </div>
+    </div>
+
+<section id="testimonials">
+<div className="container">
+  <Swiper
+    slidesPerView={1}
+    spaceBetween={30}
+    navigation={true}
+    mousewheel={true}
+    keyboard={true}
+    pagination={{
+      clickable: true,
+    }}
+    autoplay={{
+      delay: 2500,
+      disableOnInteraction: false,
+    }}
+    breakpoints={{
+      601: { slidesPerView: 2 },
+      1025: { slidesPerView: 3 },
+    }}
+    loop={true}
+    modules={[Navigation, Autoplay, Pagination, Mousewheel, Keyboard]}
+    className="moon"
+  >
+    <SwiperSlide>Slide 1</SwiperSlide>
+    <SwiperSlide>Slide 2</SwiperSlide>
+    <SwiperSlide>Slide 3</SwiperSlide>
+    <SwiperSlide>Slide 4</SwiperSlide>
+    <SwiperSlide>Slide 5</SwiperSlide>
+
+
+  </Swiper>
+</div>
+</section>
+</div>
+  );
+};
+
+export default MoonSlider;
+
+
+
+
+
+# 動く
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import React, { useState, useEffect } from 'react';
+import moonData from '../moondata.json';
+
+import Swiper from 'react-id-swiper';
+
+
+
+
+const MoonSlider = () => {
+
+
+  return (
+  <Swiper
+    className="moon"
+  >
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </Swiper>
+  );
+};
+
+export default MoonSlider;
+
+
+
+
+
+<これは動く。必ず>
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import React, { useState, useEffect } from 'react';
+import moonData from '../moondata.json';
+import Swiper from 'react-id-swiper';
+import React, { useState, useEffect } from 'react';
+
+
+
+
+
+const MoonSlider = () => {
+    return (
+      /* 日付を指定するセレクタ */
+
+      <Swiper>
+        {/* moonDataの中身を全てdivにだす */}
+        {Object.keys(moonData).map((date) => (
+          <div key={date}>
+            <p>{date}</p>
+            <img src={moonData[date].image_path} alt={`Moon on ${date}`} />
+          </div>
+        ))}
+      </Swiper>
+    )
+};
+
+export default MoonSlider;
+
+
+
+
+
+
+
+
+import "swiper/css";
+import React, { useState, useEffect } from 'react';
+import Swiper from 'react-id-swiper';
+import moonData from '../moondata.json';
+
+const MoonSlider = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedMoonData, setSelectedMoonData] = useState(null);
+
+  useEffect(() => {
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    const dataForSelectedDate = moonData[formattedDate];
+    setSelectedMoonData(dataForSelectedDate);
+  }, [selectedDate]);
+
+  const handleDateChange = (event) => {
+    const selectedDateString = event.target.value;
+    const selectedDateObject = new Date(selectedDateString);
+    setSelectedDate(selectedDateObject);
+  };
+  const activeSlideKey = selectedMoonData ? selectedDate.toISOString().split('T')[0] : null;
+
+  // Swiperの設定オプション
+  const swiperParams = {
+    slidesPerView: 1,
+    activeSlideKey: activeSlideKey,
+    loop: true,
+    /* 画面からはみ出しているものは非表示 */
+    centeredSlides: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    initialSlide: Object.keys(moonData).indexOf(selectedDate.toISOString().split('T')[0]),
+    // 他のオプションもここで設定
+  };
+
+  return (
+    <div>
+      {/* 日付を指定するセレクタ */}
+      <label htmlFor="dateSelector">Select Date:</label>
+      <input
+        type="date"
+        id="dateSelector"
+        value={selectedDate.toISOString().split('T')[0]}
+        onChange={handleDateChange}
+      />
+
+      {/* 選択した日付のデータを表示 */}
+      {selectedMoonData && (
+        <div>
+          <p>{selectedDate.toISOString().split('T')[0]}</p>
+          <p>Moon Set Time: {selectedMoonData.moon_set_time}</p>
+          <p>Moon Rise Time: {selectedMoonData.moon_rise_time}</p>
+          <p>Moon Transit Time: {selectedMoonData.moon_transit_time}</p>
+          <img src={selectedMoonData.image_path} alt={`Moon on ${selectedDate.toISOString().split('T')[0]}`} />
+        </div>
+      )}
+
+      {/* Swiperで全データを表示 */}
+      <Swiper {...swiperParams}>
+        {Object.keys(moonData).map((date) => (
+          <div key={date}>
+            <p>{date}</p>
+            <img src={moonData[date].image_path} alt={`Moon on ${date}`} />
+          </div>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+export default MoonSlider;
